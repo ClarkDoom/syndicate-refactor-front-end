@@ -5,9 +5,6 @@ import { Link, useNavigate } from 'react-router-dom'
 // services
 import * as authService from '../../services/authService'
 
-// stylesheets
-import styles from './SignupForm.module.css'
-
 // types
 import { AuthFormProps } from '../../types/props'
 import { SignupFormData, PhotoFormData } from '../../types/forms'
@@ -62,10 +59,10 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
+      <div >
+        <label htmlFor="name" >Name</label>
         <input
           type="text"
           id="name"
@@ -74,8 +71,8 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>
+      <div >
+        <label htmlFor="email" >
           Email
         </label>
         <input
@@ -86,8 +83,8 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>
+      <div >
+        <label htmlFor="password" >
           Password
         </label>
         <input
@@ -98,8 +95,8 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>
+      <div >
+        <label htmlFor="confirm" >
           Confirm Password
         </label>
         <input
@@ -110,8 +107,8 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="photo-upload" className={styles.label}>
+      <div >
+        <label htmlFor="photo-upload" >
           Upload Photo
         </label>
         <input
@@ -121,10 +118,10 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
           onChange={handleChangePhoto}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div >
         <button 
           disabled={isFormInvalid() || isSubmitted} 
-          className={styles.button}
+          
         >
           {!isSubmitted ? "Sign Up" : "🚀 Sending..."}
         </button>
