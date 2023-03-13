@@ -1,5 +1,5 @@
 // npm modules 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
@@ -20,7 +20,7 @@ import * as authService from './services/authService'
 import './App.css'
 
 // types
-import { User } from './types/models'
+import { User, Profile } from './types/models'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -37,11 +37,31 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
+  const [profile, setProfile] = useState<Profile>({
+    name: "",
+    userName: "",
+    aboutMe: "",
+    photo: "",
+    id: 0
+  })
+
+  useEffect((): void => {
+    const fetchProfile = async (): Promise<void> => {
+      try {
+        const profileData: Profile = await profileService.getProfile(user!.profile.id)
+        setProfile(profileData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchProfile()
+  }, [user])
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
+        <Route path="/" element={<Home user={user}/>} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

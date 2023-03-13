@@ -10,8 +10,6 @@ export interface Profile {
   aboutMe?: string;
   photo?: string;
   id: number;
-  createdAt: string;
-  updatedAt: string;
 }
 
 export interface User {
