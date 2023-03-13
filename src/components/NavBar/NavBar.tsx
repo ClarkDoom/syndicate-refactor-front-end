@@ -43,6 +43,12 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                   Home
                 </NavLink>
               </p>
+              <form action="/query" method="POST" role="search">
+                <input type="search" name="query" placeholder="Enter show name" aria-label="Search" />
+                <button id="search-button" type="submit">
+                  Search
+                </button>
+              </form>
               <p className="items">
                 <NavLink to="/profiles">
                   Profiles
@@ -58,6 +64,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                   LOG OUT
                 </NavLink>
               </p>
+              {/* once search is setup, add to nav bar */}
             </>
             :
             <>
