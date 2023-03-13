@@ -4,16 +4,17 @@ import { User, Profile } from '../../types/models'
 
 interface HomeProps {
   user: User | null;
+  profile: Profile
 }
 
 const Home = (props: HomeProps): JSX.Element => {
-  const { user } = props
+  const { user, profile } = props
 
   
 
   return (
-    <div>
-      {/* {profile.name} */}
+    <div className="home-page">
+      <img src={profile.photo} alt="" />
       <h1 id="landing-page">Welcome to Syndicate.</h1>
       <h2 id="landing-page">Keeping up with TV content made easy and social.</h2>
       <h5 id="landing-page">See what others are up to on the Community tab.</h5>

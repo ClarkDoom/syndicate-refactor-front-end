@@ -15,6 +15,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as profileService from './services/profileService'
 
 // stylesheets
 import './App.css'
@@ -61,7 +62,7 @@ function App(): JSX.Element {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Home user={user}/>} />
+        <Route path="/" element={<Home profile={profile} user={user}/>} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

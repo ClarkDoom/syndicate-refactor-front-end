@@ -109,5 +109,10 @@ nav img {
   .nav-btn {
     display: block;
   }
+}
 
+/* HOME PAGE  */
+
+.home-page img {
+  width: 10%;
 }
