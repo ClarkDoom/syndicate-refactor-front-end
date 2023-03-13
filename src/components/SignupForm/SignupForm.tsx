@@ -17,6 +17,7 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState<SignupFormData>({
     name: '',
+    userName: '',
     email: '',
     password: '',
     passwordConf: '',
@@ -49,7 +50,7 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
     }
   }
 
-  const { name, email, password, passwordConf } = formData
+  const { name, email, password, passwordConf, userName } = formData
 
   const isFormInvalid = (): boolean => {
     return !(name && email && password && password === passwordConf)
@@ -68,6 +69,16 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
           id="name"
           value={name}
           name="name"
+          onChange={handleChange}
+        />
+      </div>
+      <div >
+        <label htmlFor="userName" >userName</label>
+        <input
+          type="text"
+          id="userName"
+          value={userName}
+          name="userName"
           onChange={handleChange}
         />
       </div>
