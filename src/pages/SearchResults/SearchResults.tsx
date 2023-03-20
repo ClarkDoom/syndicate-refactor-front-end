@@ -1,6 +1,8 @@
 const SearchResults = () => {
   return (
     <>
+    <h1>Search Results Component</h1>
+    
     </>
   );
 }

@@ -50,6 +50,31 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                 </button>
               </form>
               <p className="items">
+                <NavLink to="/community">
+                  Community
+                </NavLink>
+              </p>
+              <p className="items">
+                <NavLink to="/watchlist">
+                  Watchlist
+                </NavLink>
+              </p>
+              <p className="items">
+                <NavLink to="/currently-watching">
+                  Currently Watching
+                </NavLink>
+              </p>
+              <p className="items">
+                <NavLink to="/seen-it">
+                  Seen It
+                </NavLink>
+              </p>
+              <p className="items">
+                <NavLink to="/profile">
+                  Profile
+                </NavLink>
+              </p>
+              <p className="items">
                 <NavLink to="/profiles">
                   Profiles
                 </NavLink>
@@ -64,7 +89,6 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                   LOG OUT
                 </NavLink>
               </p>
-              {/* once search is setup, add to nav bar */}
             </>
             :
             <>

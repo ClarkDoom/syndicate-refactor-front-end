@@ -8,6 +8,12 @@ import Login from './pages/Login/Login'
 import Home from './pages/Home/Home'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import SearchResults from './pages/SearchResults/SearchResults'
+import Community from './pages/Community/Community'
+import Watchlist from './pages/Watchlist/Watchlist'
+import CurrentlyWatching from './pages/CurrentlyWatching/CurrentlyWatching'
+import SeenIt from './pages/SeenIt/SeenIt'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -63,6 +69,12 @@ function App(): JSX.Element {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home profile={profile} user={user}/>} />
+        <Route path="/search" element={<SearchResults/>} />
+        <Route path="/community" element={<Community/>} />
+        <Route path="/watchlist" element={<Watchlist/>} />
+        <Route path="/currently-watching" element={<CurrentlyWatching/>} />
+        <Route path="/seen-it" element={<SeenIt/>} />
+        <Route path="/profile" element={<ProfilePage/>} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
