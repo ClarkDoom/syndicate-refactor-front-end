@@ -7,18 +7,21 @@ import * as searchService from '../../services/searchService'
 const TvShowResult = () => {
   const location = useLocation()
   const result = location.state.result
-  console.log(result)
 
+  //! remove any type 
   const [tvShow, setTvShow] = useState<any>({
-    name: ""
+    name: "", 
+    seasons: []
   })
 
   useEffect(() => {
     try {
       async function findShow() {
         const response = await searchService.findShow(result.id)
+        console.log("response ALERT", response)
         setTvShow({
-          name: response.name
+          name: response.name,
+          seasons: response.seasons
         })
       }
       findShow()
@@ -34,6 +37,11 @@ const TvShowResult = () => {
       <p>
         {tvShow.name}
       </p>
+      {tvShow.seasons.map(season => 
+      <p>
+        {season.name}
+      </p>  
+      )}
     </>
   );
 }

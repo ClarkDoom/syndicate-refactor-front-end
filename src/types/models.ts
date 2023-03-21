@@ -27,6 +27,7 @@ export interface Show {
   tmbdShowId: string;
   addedBy: { id: number};
   name: string;
+  seasons: [];
   showDescription: string;
   imageUrl: string;
   listType: string;
