@@ -12,7 +12,8 @@ const TvShowResult = () => {
   //! remove any type 
   const [tvShow, setTvShow] = useState<any>({
     name: "",
-    seasons: []
+    seasons: [],
+    showId: 0
   })
 
   useEffect(() => {
@@ -22,7 +23,8 @@ const TvShowResult = () => {
         console.log("response ALERT", response)
         setTvShow({
           name: response.name,
-          seasons: response.seasons
+          seasons: response.seasons,
+          showId: response.id
         })
       }
       findShow()
@@ -40,7 +42,7 @@ const TvShowResult = () => {
       </p>
       {tvShow.seasons.map(season =>
         <p>
-          <Link to="/episodes">
+          <Link to="/episodes" state={{ showId: tvShow.showId, seasonId: season.id}}>
             {season.name}
           </Link>
         </p>
