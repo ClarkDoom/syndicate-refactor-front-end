@@ -26,7 +26,7 @@ export interface Show {
   id: number;
   tmbdShowId: string;
   addedBy: { id: number};
-  showName: string;
+  name: string;
   showDescription: string;
   imageUrl: string;
   listType: string;
