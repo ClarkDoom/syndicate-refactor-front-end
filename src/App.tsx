@@ -31,7 +31,7 @@ import { User, Profile } from './types/models'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
-  
+
   const [user, setUser] = useState<User | null>(authService.getUser())
 
   const handleLogout = (): void => {
@@ -68,13 +68,14 @@ function App(): JSX.Element {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Home profile={profile} user={user}/>} />
-        <Route path="/search" element={<SearchResults/>} />
-        <Route path="/community" element={<Community/>} />
-        <Route path="/watchlist" element={<Watchlist/>} />
-        <Route path="/currently-watching" element={<CurrentlyWatching/>} />
-        <Route path="/seen-it" element={<SeenIt/>} />
-        <Route path="/profile" element={<ProfilePage/>} />
+        <Route path="/" element={<Home profile={profile} user={user} />} />
+        <Route path="/search" element={<SearchResults />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+        <Route path="/currently-watching" element={<CurrentlyWatching />} />
+        <Route path="/seen-it" element={<SeenIt />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/search-results" element={<SearchResults />} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

@@ -2,10 +2,13 @@
 import { useState, useEffect } from 'react';
 
 // npm modules
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 // types
 import { User } from '../../types/models'
+
+// services
+import * as searchService from '../../services/searchService'
 
 interface NavBarProps {
   user: User | null;
@@ -14,12 +17,27 @@ interface NavBarProps {
 
 const NavBar = (props: NavBarProps): JSX.Element => {
   const { user, handleLogout } = props
+  const navigate = useNavigate()
 
+  const [searchField, setSearchField] = useState("");
   const [toggleMenu, setToggleMenu] = useState(false)
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
   const toggleNav = () => {
     setToggleMenu(!toggleMenu)
+  }
+
+  const handleSearch = async (evt: React.FormEvent) => {
+    evt.preventDefault()
+    try {
+      const response = await searchService.searchShows(searchField)
+      navigate('/search-results', { state: { results: response } })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  const handleSearchChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchField(evt.target.value)
   }
 
   useEffect(() => {
@@ -43,9 +61,9 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                   Home
                 </NavLink>
               </p>
-              <form action="/query" method="POST" role="search">
-                <input type="search" name="query" placeholder="Enter show name" aria-label="Search" />
-                <button id="search-button" type="submit">
+              <form onSubmit={handleSearch}>
+                <input type="search" name="query" placeholder="Enter show name" aria-label="Search" onChange={handleSearchChange} />
+                <button type="submit">
                   Search
                 </button>
               </form>
