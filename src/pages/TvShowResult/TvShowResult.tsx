@@ -1,5 +1,6 @@
 import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // services
 import * as searchService from '../../services/searchService'
@@ -10,7 +11,7 @@ const TvShowResult = () => {
 
   //! remove any type 
   const [tvShow, setTvShow] = useState<any>({
-    name: "", 
+    name: "",
     seasons: []
   })
 
@@ -37,10 +38,12 @@ const TvShowResult = () => {
       <p>
         {tvShow.name}
       </p>
-      {tvShow.seasons.map(season => 
-      <p>
-        {season.name}
-      </p>  
+      {tvShow.seasons.map(season =>
+        <p>
+          <Link to="/episodes">
+            {season.name}
+          </Link>
+        </p>
       )}
     </>
   );
