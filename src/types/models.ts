@@ -35,6 +35,14 @@ export interface Show {
   updatedAt: string;
 }
 
+export interface ShowResult {
+  id: number;
+  name: string;
+  seasons: [];
+  first_air_date: string;
+  poster_path: string;
+}
+
 export interface Review {
   id: number;
   reviewContent: string;
