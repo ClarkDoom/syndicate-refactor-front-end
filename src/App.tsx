@@ -14,6 +14,7 @@ import Watchlist from './pages/Watchlist/Watchlist'
 import CurrentlyWatching from './pages/CurrentlyWatching/CurrentlyWatching'
 import SeenIt from './pages/SeenIt/SeenIt'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
+import TvShowResult from './pages/TvShowResult/TvShowResult'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -76,6 +77,7 @@ function App(): JSX.Element {
         <Route path="/seen-it" element={<SeenIt />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/search-results" element={<SearchResults />} />
+        <Route path="/tv-show-result" element={<TvShowResult />} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
