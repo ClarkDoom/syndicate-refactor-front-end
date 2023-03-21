@@ -53,8 +53,6 @@ const Episode = () => {
     }
   }, [episode])
 
-  console.log(episodeDetails)
-
   return (
     <>
     <h1>Episode Page</h1>

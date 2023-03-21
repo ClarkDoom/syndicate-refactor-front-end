@@ -38,8 +38,6 @@ const TvShowResult = () => {
     }
   }, [result])
 
-  console.log(result)
-
   return (
     <>
       <h1>TvShowResult Page</h1>

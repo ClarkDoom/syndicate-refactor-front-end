@@ -35,6 +35,11 @@ export interface Show {
   updatedAt: string;
 }
 
+export interface SearchResult {
+  poster_path: string;
+  name: string;
+  first_air_date: string;
+}
 export interface ShowResult {
   id: number;
   name: string;
@@ -72,7 +77,8 @@ export interface CastMemberResult {
   name: string;
   character: string;
   profile_path: string;
-
+  // not sure why this cast needs to be here
+  cast: [];
 }
 
 
