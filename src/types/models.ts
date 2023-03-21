@@ -46,8 +46,35 @@ export interface ShowResult {
 export interface SeasonResult {
   name: string;
   season_number: number;
- 
+  overview: string;
+  poster_path: string;
+  air_date: string;
+  episodes: []
 }
+
+export interface EpisodeResult {
+  name: string;
+  still_path: string;
+  episode_number: number;
+  air_date: string;
+  show_id: number;
+  season_number: number;
+  overview: string;
+  runtime: number;
+  vote_average: number;
+  id: number;
+  crew: [];
+  guest_stars: [];
+  cast: []
+}
+
+export interface CastMemberResult {
+  name: string;
+  character: string;
+  profile_path: string;
+
+}
+
 
 export interface Review {
   id: number;

@@ -1,3 +1,4 @@
+// npm packages
 import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -5,16 +6,20 @@ import { Link } from "react-router-dom";
 // services
 import * as searchService from '../../services/searchService'
 
+// types
+import { SeasonResult, EpisodeResult } from '../../types/models'
+
 const EpisodeList = () => {
   const location = useLocation()
   const seasonNumber = location.state.seasonNumber
   const showId = location.state.showId
 
-  const [season, setSeason] = useState<any>({
+  const [season, setSeason] = useState<SeasonResult>({
     name: "",
-    seasonDescription: "",
-    posterPath: "",
-    airDate: "",
+    season_number: 0,
+    overview: "",
+    poster_path: "",
+    air_date: "",
     episodes: [],
 
   })
@@ -25,10 +30,11 @@ const EpisodeList = () => {
         const response = await searchService.findSeason(showId, seasonNumber)
         setSeason({
           name: response.name,
-          airDate: response.air_date,
-          posterPath: response.poster_path,
+          season_number: response.season_number,
+          air_date: response.air_date,
+          poster_path: response.poster_path,
           episodes: response.episodes,
-          seasonDescription: response.overview,
+          overview: response.overview,
         })
       }
       findSeason()
@@ -42,10 +48,10 @@ const EpisodeList = () => {
     <>
       <h1>Episode List Component</h1>
       <p>{season.name}</p>
-      <p>{season.seasonDescription}</p>
-      <p>{season.posterPath}</p>
-      <p>{season.airDate}</p>
-      {season.episodes.map(episode =>
+      <p>{season.overview}</p>
+      <p>{season.poster_path}</p>
+      <p>{season.air_date}</p>
+      {season.episodes.map((episode: EpisodeResult) =>
         <div key={episode.name}>
           <p>--------------</p>
           <Link to="/episode" state={{ episode: episode }}>
