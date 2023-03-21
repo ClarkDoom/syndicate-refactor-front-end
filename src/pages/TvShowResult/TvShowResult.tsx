@@ -6,18 +6,18 @@ import { Link } from "react-router-dom";
 import * as searchService from '../../services/searchService'
 
 // types
-import { ShowResult } from '../../types/models'
+import { ShowResult, SeasonResult } from '../../types/models'
 
 const TvShowResult = () => {
   const location = useLocation()
   const result = location.state.result
 
-  //! remove any type 
   const [tvShow, setTvShow] = useState<ShowResult>({
     name: "",
     seasons: [],
     id: 0,
-    firstAirDate: ""
+    first_air_date: "", 
+    poster_path: ''
   })
 
   useEffect(() => {
@@ -28,7 +28,8 @@ const TvShowResult = () => {
           name: response.name,
           seasons: response.seasons,
           id: response.id,
-          firstAirDate: response.first_air_date,
+          first_air_date: response.first_air_date,
+          poster_path: response.poster_path
         })
       }
       findShow()
@@ -45,13 +46,15 @@ const TvShowResult = () => {
       <p>
         {tvShow.name}
       </p>
-      <p>First Air Date: {tvShow.firstAirDate}</p>
-      {tvShow.seasons.map(season =>
-        <p key={season.name}>
+      <p>First Air Date: {tvShow.first_air_date}</p>
+      {tvShow.seasons.map((season: SeasonResult) =>
+      <div key={season.name}>
+        <p>
           <Link to="/episodes" state={{ showId: tvShow.id, seasonNumber: season.season_number}}>
             {season.name}
           </Link>
         </p>
+      </div>
       )}
     </>
   );

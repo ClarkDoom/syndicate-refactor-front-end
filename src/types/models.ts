@@ -43,6 +43,12 @@ export interface ShowResult {
   poster_path: string;
 }
 
+export interface SeasonResult {
+  name: string;
+  season_number: number;
+ 
+}
+
 export interface Review {
   id: number;
   reviewContent: string;
