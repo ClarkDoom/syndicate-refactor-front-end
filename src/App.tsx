@@ -10,7 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import SearchResults from './pages/SearchResults/SearchResults'
 import Community from './pages/Community/Community'
-import Watchlist from './pages/Watchlist/Watchlist'
+import Lists from './pages/Lists/Lists'
 import CurrentlyWatching from './pages/CurrentlyWatching/CurrentlyWatching'
 import SeenIt from './pages/SeenIt/SeenIt'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
@@ -77,9 +77,7 @@ function App(): JSX.Element {
         <Route path="/" element={<Home profile={profile} user={user} />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/watchlist" element={<Watchlist profile={profile} />} />
-        <Route path="/currently-watching" element={<CurrentlyWatching />} />
-        <Route path="/seen-it" element={<SeenIt />} />
+        <Route path="/lists" element={<Lists profile={profile} />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/search-results" element={<SearchResults />} />
         <Route path="/tv-show-result" element={<TvShowResult profileId={profile.id} />} />

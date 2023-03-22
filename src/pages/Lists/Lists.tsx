@@ -34,7 +34,7 @@ const Watchlist = (props: ProfileListsProps) => {
     const filteredData = filterByListType(shows);
     setFilteredShows(filteredData);
   }, 
-  [selectedList]);
+  [selectedList, profile]);
 
   return (
     <>

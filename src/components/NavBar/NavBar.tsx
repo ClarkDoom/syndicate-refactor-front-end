@@ -73,18 +73,8 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                 </NavLink>
               </p>
               <p className="items">
-                <NavLink to="/watchlist">
-                  Watchlist
-                </NavLink>
-              </p>
-              <p className="items">
-                <NavLink to="/currently-watching">
-                  Currently Watching
-                </NavLink>
-              </p>
-              <p className="items">
-                <NavLink to="/seen-it">
-                  Seen It
+                <NavLink to="/lists">
+                  Lists
                 </NavLink>
               </p>
               <p className="items">
