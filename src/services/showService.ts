@@ -43,10 +43,9 @@ async function getProfileShows(profileId: number): Promise<any> {
 // /profile/:profileId/show/:showId
 
 //! remove any type
-async function updateShow(profileId: number, showId: number, showForm: any): Promise<any> {
-  console.log("profileId: ", profileId, "showId: ", showId, "showForm: ", showForm)
+async function updateShow(showId: number, showForm: any): Promise<any> {
   try {
-    const res = await fetch(`${BASE_URL}/profile/${profileId}/show/${showId}`, {
+    const res = await fetch(`${BASE_URL}/show/${showId}`, {
       method: "PATCH",
       headers: { 
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -61,4 +60,19 @@ async function updateShow(profileId: number, showId: number, showForm: any): Pro
   }
 }
 
-export { addShow, getProfileShows, updateShow }
+//! remove any type
+async function deleteShow(showId: number): Promise<void> {
+  try {
+    await fetch(`${BASE_URL}/show/${showId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+      },
+
+    })
+  } catch (err) {
+    throw err
+  }
+}
+
+export { addShow, getProfileShows, updateShow, deleteShow }

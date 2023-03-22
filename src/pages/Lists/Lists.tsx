@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import * as showService from '../../services/showService'
-import * as profileService from '../../services/profileService'
 
 import { ProfileListsProps } from "../../types/props";
-import { Show, Profile } from "../../types/models";
+import { Show } from "../../types/models";
 
 const Watchlist = (props: ProfileListsProps) => {
   const navigate = useNavigate()
+  const location = useLocation()
+  const listType = location.state?.listType
   const { profileId } = props
-
 
   //! remove any type
   const [profileShows, setProfileShows] = useState<any>([])
-  console.log(profileShows)
-  const [selectedList, setSelectedList] = useState("")
+  const [selectedList, setSelectedList] = useState(listType ? listType : "")
   
   useEffect((): void => {
     const fetchProfileShows = async (): Promise<any> => {
@@ -57,8 +56,20 @@ const Watchlist = (props: ProfileListsProps) => {
   const changeListType = async (evt: any) => {
     const target = evt.target as HTMLButtonElement
     try {
-      await showService.updateShow(profileId, Number(target.id), { showType: target.value })
+      await showService.updateShow(Number(target.id), { showType: target.value })
       setSelectedList(target.value)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  //! remove any type 
+  const deleteShow = async (evt: any) => {
+    const target = evt.target as HTMLButtonElement
+    try {
+      await showService.deleteShow(Number(target.id))
+      alert("Show Deleted")
+      setSelectedList("")
     } catch (err) {
       console.log(err)
     }
@@ -77,9 +88,8 @@ const Watchlist = (props: ProfileListsProps) => {
         >
           <option value="">All</option>
           <option value="watchlist">Watchlist</option>
-          <option value="currently watching">Currenlty Watching</option>
+          <option value="currently watching">Currently Watching</option>
           <option value="seen it">Seen It</option>
-          <option value="favorite">Favorite</option>
         </select>
       </div>
 
@@ -92,24 +102,19 @@ const Watchlist = (props: ProfileListsProps) => {
             {selectedList === "watchlist" &&
               <div>
                 <button id={show.id} value="currently watching" onClick={changeListType}>Currently Watching</button>
-                <button>Remove</button>
+                <button id={show.id} onClick={deleteShow}>Remove</button>
               </div>
             }
             {selectedList === "currently watching" &&
               <div>
-                <button>Seen It</button>
-                <button>Remove</button>
+                <button id={show.id} value="seen it" onClick={changeListType}>Seen It</button>
+                <button id={show.id} onClick={deleteShow}>Remove</button>
               </div>
             }
             {selectedList === "seen it" &&
               <div>
                 <button>Write Review</button>
-                <button>Remove</button>
-              </div>
-            }
-            {selectedList === "favorite" &&
-              <div>
-                <button>Remove</button>
+                <button id={show.id} onClick={deleteShow}>Remove</button>
               </div>
             }
           </div>

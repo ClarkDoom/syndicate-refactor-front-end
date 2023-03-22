@@ -73,13 +73,13 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
     const target = evt.target as HTMLButtonElement
     try {
       await showService.addShow(profileId, { ...showForm, showType: target.id })
-      const route = target.id.replace(/\s+/g, '-')
-      if(route === "favorite"){
+      // const route = target.id.replace(/\s+/g, '-')
+      if(target.id === "favorite"){
         navigate('/profile')
       } else {
         navigate(`/lists`, {
           state: {
-            profileId: profileId
+            listType: target.id
           }
         })
       }
