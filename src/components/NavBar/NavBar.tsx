@@ -83,16 +83,6 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                 </NavLink>
               </p>
               <p className="items">
-                <NavLink to="/profiles">
-                  Profiles
-                </NavLink>
-              </p>
-              <p className="items">
-                <NavLink to="/change-password">
-                  Change Password
-                </NavLink>
-              </p>
-              <p className="items">
                 <NavLink to="" onClick={handleLogout}>
                   LOG OUT
                 </NavLink>
