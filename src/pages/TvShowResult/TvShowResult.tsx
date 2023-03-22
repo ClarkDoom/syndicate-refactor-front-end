@@ -68,11 +68,12 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
     }
   }, [tvShow])
 
-  const handleSubmit = async (evt): Promise<any> => {
+  const handleSubmit = async (evt: React.MouseEvent<HTMLButtonElement>): Promise<any> => {
     evt.preventDefault()
+    const target = evt.target as HTMLButtonElement
     try {
-      await showService.addShow(profileId, { ...showForm, showType: evt.target.id })
-      const route = evt.target.id.replace(/\s+/g, '-')
+      await showService.addShow(profileId, { ...showForm, showType: target.id })
+      const route = target.id.replace(/\s+/g, '-')
       if(route === "favorite"){
         navigate('/profile')
       } else {
