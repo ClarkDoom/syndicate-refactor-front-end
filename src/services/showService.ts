@@ -25,4 +25,19 @@ async function addShow(profileId: number, showForm:CreateShowForm): Promise<any>
   }
 }
 
-export { addShow }
+//! remove any type
+async function getProfileShows(profileId: number): Promise<any> {
+  try {
+    const res = await fetch(`${BASE_URL}/profile/${profileId}`, {
+      headers: { 
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+      },
+    })
+    return await res.json()
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}
+
+export { addShow, getProfileShows }

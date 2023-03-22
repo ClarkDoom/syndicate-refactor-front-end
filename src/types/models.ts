@@ -10,6 +10,7 @@ export interface Profile {
   aboutMe?: string;
   photo?: string;
   id: number;
+  shows: []
 }
 
 export interface User {
@@ -23,16 +24,25 @@ export interface User {
 }
 
 export interface Show {
-  id: number;
-  tmbdShowId: string;
-  addedBy: { id: number};
-  name: string;
-  seasons: [];
-  showDescription: string;
-  imageUrl: string;
-  listType: string;
-  createdAt: string;
-  updatedAt: string;
+  // id: number;
+  // tmbdShowId: string;
+  // addedBy: { id: number};
+  // name: string;
+  // seasons: [];
+  // showDescription: string;
+  // imageUrl: string;
+  // listType: string;
+  // createdAt: string;
+  // updatedAt: string;
+  id: '',
+  tmbdShowId: 0,
+  addedBy: 0,
+  showName: '',
+  showDescription: '',
+  imageUrl: '',
+  showType: '',
+  createdAt: '',
+  updatedAt: '',
 }
 
 export interface SearchResult {
@@ -90,7 +100,7 @@ export interface Review {
   rating: number;
   author: { id: number };
   tmbdShowId: string;
-  reviewFor: { id: number};
+  reviewFor: { id: number };
   reviewForType: string;
   reviewTitle: string;
   createdAt: string;
@@ -100,7 +110,7 @@ export interface Review {
 export interface Comment {
   id: number;
   commentText: string;
-  commentOn: { id: number};
+  commentOn: { id: number };
   reaction: string;
   createdBy: { id: number }
   createdAt: string;

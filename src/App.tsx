@@ -26,11 +26,12 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
 
+
 // stylesheets
 import './App.css'
 
 // types
-import { User, Profile } from './types/models'
+import { User, Profile, Show } from './types/models'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -52,7 +53,8 @@ function App(): JSX.Element {
     userName: "",
     aboutMe: "",
     photo: "",
-    id: 0
+    id: 0,
+    shows: []
   })
 
   useEffect((): void => {
@@ -67,6 +69,7 @@ function App(): JSX.Element {
     fetchProfile()
   }, [user])
 
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -74,12 +77,12 @@ function App(): JSX.Element {
         <Route path="/" element={<Home profile={profile} user={user} />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/watchlist" element={<Watchlist />} />
+        <Route path="/watchlist" element={<Watchlist profile={profile} />} />
         <Route path="/currently-watching" element={<CurrentlyWatching />} />
         <Route path="/seen-it" element={<SeenIt />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/search-results" element={<SearchResults />} />
-        <Route path="/tv-show-result" element={<TvShowResult profileId={profile.id}/>} />
+        <Route path="/tv-show-result" element={<TvShowResult profileId={profile.id} />} />
         <Route path="/episodes" element={<EpisodeList />} />
         <Route path="/episode" element={<Episode />} />
         <Route

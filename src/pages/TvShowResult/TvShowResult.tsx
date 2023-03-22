@@ -68,7 +68,7 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
     }
   }, [tvShow])
 
-  const handleSubmit = async (evt: React.MouseEvent<HTMLButtonElement>): Promise<any> => {
+  const handleSubmit = async (evt: React.MouseEvent): Promise<any> => {
     evt.preventDefault()
     const target = evt.target as HTMLButtonElement
     try {
