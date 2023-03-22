@@ -8,7 +8,7 @@ export interface TvShowResultProps {
 }
 
 export interface ProfileListsProps {
-  profile: Profile
+  profileId: number, 
 }
 
 /* ---------===== auth form props =====--------- */

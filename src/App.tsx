@@ -77,7 +77,7 @@ function App(): JSX.Element {
         <Route path="/" element={<Home profile={profile} user={user} />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/lists" element={<Lists profile={profile} />} />
+        <Route path="/lists" element={<Lists profileId={profile.id}/>} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/search-results" element={<SearchResults />} />
         <Route path="/tv-show-result" element={<TvShowResult profileId={profile.id} />} />

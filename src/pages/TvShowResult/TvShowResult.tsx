@@ -77,7 +77,11 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
       if(route === "favorite"){
         navigate('/profile')
       } else {
-        navigate(`/${route}`)
+        navigate(`/lists`, {
+          state: {
+            profileId: profileId
+          }
+        })
       }
     } catch (error) {
       console.log(error)

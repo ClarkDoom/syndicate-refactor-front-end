@@ -40,4 +40,25 @@ async function getProfileShows(profileId: number): Promise<any> {
   }
 }
 
-export { addShow, getProfileShows }
+// /profile/:profileId/show/:showId
+
+//! remove any type
+async function updateShow(profileId: number, showId: number, showForm: any): Promise<any> {
+  console.log("profileId: ", profileId, "showId: ", showId, "showForm: ", showForm)
+  try {
+    const res = await fetch(`${BASE_URL}/profile/${profileId}/show/${showId}`, {
+      method: "PATCH",
+      headers: { 
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(showForm)
+    })
+    return await res.json()
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}
+
+export { addShow, getProfileShows, updateShow }
