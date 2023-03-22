@@ -70,10 +70,14 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
 
   const handleSubmit = async (evt): Promise<any> => {
     evt.preventDefault()
-    console.log("EVT.TARGET", evt.target.id)
     try {
       await showService.addShow(profileId, { ...showForm, showType: evt.target.id })
-      navigate("/watchlist")
+      const route = evt.target.id.replace(/\s+/g, '-')
+      if(route === "favorite"){
+        navigate('/profile')
+      } else {
+        navigate(`/${route}`)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -86,7 +90,7 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
         {tvShow.name}
       </p>
       <p>First Air Date: {tvShow.first_air_date}</p>
-      <button onClick={handleSubmit} id="watchlist">Watchlist</button>
+      <button onClick={handleSubmit} key="ALERT" id="watchlist">Watchlist</button>
       <button onClick={handleSubmit} id="currently watching">Currently Watching</button>
       <button onClick={handleSubmit} id="seen it">Seen It</button>
       <button onClick={handleSubmit} id="favorite">Favorite</button>
