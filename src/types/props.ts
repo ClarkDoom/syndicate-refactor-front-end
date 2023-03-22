@@ -1,6 +1,8 @@
 /* ---------======= custom props ======--------- */
 
-
+export interface TvShowResultProps {
+  profileId: number
+}
 
 /* ---------===== auth form props =====--------- */
 

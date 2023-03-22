@@ -40,12 +40,14 @@ export interface SearchResult {
   name: string;
   first_air_date: string;
 }
+
 export interface ShowResult {
   id: number;
   name: string;
   seasons: [];
   first_air_date: string;
   poster_path: string;
+  overview: string;
 }
 
 export interface SeasonResult {

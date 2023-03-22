@@ -1,6 +1,13 @@
 /* ---------==== custom forms ====--------- */
 
+export interface CreateShowForm {
+  tmbdShowId: number;
+  showName: string;
+  showDescription: string;
+  imageUrl: string;
+  showType: string;
 
+}
 
 /* ---------===== auth forms =====--------- */
 

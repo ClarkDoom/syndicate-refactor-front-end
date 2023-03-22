@@ -79,7 +79,7 @@ function App(): JSX.Element {
         <Route path="/seen-it" element={<SeenIt />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/search-results" element={<SearchResults />} />
-        <Route path="/tv-show-result" element={<TvShowResult />} />
+        <Route path="/tv-show-result" element={<TvShowResult profileId={profile.id}/>} />
         <Route path="/episodes" element={<EpisodeList />} />
         <Route path="/episode" element={<Episode />} />
         <Route
