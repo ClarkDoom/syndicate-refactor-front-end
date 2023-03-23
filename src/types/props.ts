@@ -3,6 +3,9 @@ import { Show, Profile } from './models'
 
 /* ---------======= custom props ======--------- */
 
+export interface CreateReviewProps {
+  profileId: number
+}
 export interface TvShowResultProps {
   profileId: number
 }

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import * as showService from '../../services/showService'
 
 import { ProfileListsProps } from "../../types/props";
 import { Show } from "../../types/models";
 
 const Watchlist = (props: ProfileListsProps) => {
-  const navigate = useNavigate()
   const location = useLocation()
   const listType = location.state?.listType
   const { profileId } = props
@@ -113,7 +113,11 @@ const Watchlist = (props: ProfileListsProps) => {
             }
             {selectedList === "seen it" &&
               <div>
-                <button>Write Review</button>
+                <button>
+                  <Link to="/create-review" state={{showId: show.id}}>
+                  Write Review
+                  </Link>
+                </button>
                 <button id={show.id} onClick={deleteShow}>Remove</button>
               </div>
             }

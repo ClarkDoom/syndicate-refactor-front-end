@@ -17,6 +17,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage'
 import TvShowResult from './pages/TvShowResult/TvShowResult'
 import EpisodeList from './pages/EpisodeList/EpisodeList'
 import Episode from './pages/Episode/Episode'
+import CreateReview from './pages/CreateReview/CreateReview'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -83,6 +84,7 @@ function App(): JSX.Element {
         <Route path="/tv-show-result" element={<TvShowResult profileId={profile.id} />} />
         <Route path="/episodes" element={<EpisodeList />} />
         <Route path="/episode" element={<Episode />} />
+        <Route path="/create-review" element={<CreateReview profileId={profile.id}/>} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
