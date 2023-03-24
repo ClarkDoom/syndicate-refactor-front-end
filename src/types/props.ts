@@ -1,5 +1,7 @@
 // types
+import { SetStateAction } from 'react';
 import { Show, Profile, Review } from './models'
+import { Dispatch } from 'react';
 
 /* ---------======= custom props ======--------- */
 
@@ -15,6 +17,14 @@ export interface ProfileListsProps {
 }
 export interface CommunityCardProps {
   show: Show, 
+}
+export interface ProfilePageProps {
+  profile: Profile, 
+}
+export interface EditProfileModuleProps {
+  profile: Profile, 
+  setChangeOccured: Dispatch<SetStateAction<boolean>>,
+  changeOccured: Boolean
 }
 
 /* ---------===== auth form props =====--------- */

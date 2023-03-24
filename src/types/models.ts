@@ -10,7 +10,8 @@ export interface Profile {
   aboutMe?: string;
   photo?: string;
   id: number;
-  shows: []
+  shows: [],
+  reviews: []
 }
 
 export interface User {

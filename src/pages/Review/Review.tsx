@@ -19,7 +19,6 @@ const Review = () => {
 
   const { commentText, reaction } = commentForm
 
-
   useEffect(() => {
     try {
       async function findComments() {

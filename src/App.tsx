@@ -33,11 +33,13 @@ import './App.css'
 
 // types
 import { User, Profile, Show } from './types/models'
+import EditProfileModule from './components/EditProfileModule/EditProfileModule'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
 
   const [user, setUser] = useState<User | null>(authService.getUser())
+  const [changeOccured, setChangeOccured] = useState(false)
 
   const handleLogout = (): void => {
     authService.logout()
@@ -55,7 +57,8 @@ function App(): JSX.Element {
     aboutMe: "",
     photo: "",
     id: 0,
-    shows: []
+    shows: [],
+    reviews: []
   })
 
   useEffect((): void => {
@@ -68,7 +71,7 @@ function App(): JSX.Element {
       }
     }
     fetchProfile()
-  }, [user])
+  }, [user, changeOccured])
 
 
   return (
@@ -79,7 +82,8 @@ function App(): JSX.Element {
         <Route path="/search" element={<SearchResults />} />
         <Route path="/community" element={<Community />} />
         <Route path="/lists" element={<Lists profileId={profile.id}/>} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile" element={<ProfilePage profile={profile}/>} />
+        <Route path="/edit-profile" element={<EditProfileModule changeOccured={changeOccured} setChangeOccured={setChangeOccured}profile={profile}/>} />
         <Route path="/search-results" element={<SearchResults />} />
         <Route path="/tv-show-result" element={<TvShowResult profileId={profile.id} />} />
         <Route path="/episodes" element={<EpisodeList />} />
