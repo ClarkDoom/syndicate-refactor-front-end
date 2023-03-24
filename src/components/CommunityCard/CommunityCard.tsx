@@ -1,4 +1,6 @@
 import { CommunityCardProps } from '../../types/props'
+import { Link } from "react-router-dom";
+import { Review } from '../../types/models'
 
 const CommunityCard = (props: CommunityCardProps) => {
 
@@ -12,6 +14,17 @@ const CommunityCard = (props: CommunityCardProps) => {
       </h2>
       <p>Added By: {show.profile.userName}</p>
       <p>Added To: {show.showType}</p>
+      {show.reviews ?
+        <>
+          {show.reviews.map((review: Review) =>
+            <Link to="/review" state={{ show: show, review: review }}>
+              {review.reviewTitle}
+            </Link>
+          )}
+        </>
+        :
+        "no reviews"
+      }
     </div>
   );
 }

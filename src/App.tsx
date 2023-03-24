@@ -18,7 +18,7 @@ import TvShowResult from './pages/TvShowResult/TvShowResult'
 import EpisodeList from './pages/EpisodeList/EpisodeList'
 import Episode from './pages/Episode/Episode'
 import CreateReview from './pages/CreateReview/CreateReview'
-
+import Review from './pages/Review/Review'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
@@ -85,6 +85,7 @@ function App(): JSX.Element {
         <Route path="/episodes" element={<EpisodeList />} />
         <Route path="/episode" element={<Episode />} />
         <Route path="/create-review" element={<CreateReview profileId={profile.id}/>} />
+        <Route path="/review" element={<Review/>} />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

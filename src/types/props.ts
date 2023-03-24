@@ -1,5 +1,5 @@
 // types
-import { Show, Profile } from './models'
+import { Show, Profile, Review } from './models'
 
 /* ---------======= custom props ======--------- */
 

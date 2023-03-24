@@ -44,6 +44,7 @@ export interface Show {
   createdAt: '',
   updatedAt: '',
   profile: Profile,
+  reviews: []
 }
 
 export interface SearchResult {

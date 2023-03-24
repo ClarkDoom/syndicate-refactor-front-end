@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import * as showService from '../../services/showService'
 import { Show } from '../../types/models'
 
-import { Link } from "react-router-dom";
+
 
 import CommunityCard from "../../components/CommunityCard/CommunityCard";
 
