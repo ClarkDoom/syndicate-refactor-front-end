@@ -6,6 +6,8 @@ const CommunityCard = (props: CommunityCardProps) => {
 
   const { show } = props
 
+  console.log(show)
+
   return (
     <div>
       <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="" />

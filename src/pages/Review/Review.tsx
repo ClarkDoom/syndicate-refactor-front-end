@@ -9,7 +9,7 @@ const Review = () => {
   const location = useLocation()
   const review = location.state.review
   const show = location.state.show
-  console.log("review page - show", show)
+  console.log("review page - review", review)
 
   const [commentForm, setCommentForm] = useState<any>({
     commentText: "",
@@ -83,6 +83,10 @@ const Review = () => {
         <button type="submit">Submit</button>
       </form>
       <h2>Comments</h2>
+      {/* {review.comments.map(comment => 
+        <p>{comment.commentText}</p>
+        )} */}
+
     </>
   );
 }
