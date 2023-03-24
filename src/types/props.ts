@@ -13,6 +13,9 @@ export interface TvShowResultProps {
 export interface ProfileListsProps {
   profileId: number, 
 }
+export interface CommunityCardProps {
+  show: Show, 
+}
 
 /* ---------===== auth form props =====--------- */
 

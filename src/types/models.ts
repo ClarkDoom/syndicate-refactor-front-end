@@ -43,6 +43,7 @@ export interface Show {
   showType: '',
   createdAt: '',
   updatedAt: '',
+  profile: Profile,
 }
 
 export interface SearchResult {

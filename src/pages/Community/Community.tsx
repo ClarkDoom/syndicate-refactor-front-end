@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import * as showService from '../../services/showService'
 import { Show } from '../../types/models'
 
+import { Link } from "react-router-dom";
+
+import CommunityCard from "../../components/CommunityCard/CommunityCard";
+
 const Community = () => {
 
   const [shows, setShows] = useState([])
@@ -19,15 +23,17 @@ const Community = () => {
     }
   }, [])
 
-  console.log("shows", shows)
+  console.log(shows)
 
   return (
-    <>
+    <div>
       <h1>Community Page</h1>
-      {shows.map((show: Show) => 
-        <p>{show.showName}</p>
-        )}
-    </>
+      {shows.map((show: Show) =>
+        <div>
+          <CommunityCard show={show}/>
+        </div>
+      )}
+    </div>
   );
 }
 
