@@ -117,4 +117,5 @@ export interface Comment {
   createdBy: { id: number }
   createdAt: string;
   updatedAt: string;
+  commentBy: Profile
 }

@@ -25,7 +25,22 @@ async function addComment(profileId: number,  reviewId: number, commentForm: any
   }
 }
 
+//! remove any type 
+async function findReviewComments(reviewId: number): Promise<any> {
+  try {
+    const res = await fetch(`${BASE_URL}/review/${reviewId}`, {
+      headers: { 
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+      },
+    })
+    return await res.json()
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}
 
 
 
-export { addComment }
+
+export { addComment, findReviewComments }

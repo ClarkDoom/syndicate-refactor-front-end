@@ -1,6 +1,6 @@
 import { Comment } from '../../types/models'
 import { useLocation } from 'react-router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // services
 import * as commentService from '../../services/commentService'
@@ -9,7 +9,8 @@ const Review = () => {
   const location = useLocation()
   const review = location.state.review
   const show = location.state.show
-  console.log("review page - review", review)
+
+  const [comments, setComments ] = useState([])
 
   const [commentForm, setCommentForm] = useState<any>({
     commentText: "",
@@ -18,6 +19,18 @@ const Review = () => {
 
   const { commentText, reaction } = commentForm
 
+
+  useEffect(() => {
+    try {
+      async function findComments() {
+        const response = await commentService.findReviewComments(review.id)
+        setComments(response)
+      }
+      findComments()
+    } catch (err) {
+      console.log(err)
+    }
+  }, [])
 
   const selectChange = (evt: React.ChangeEvent<HTMLSelectElement>) => {
     const value = evt.target.value;
@@ -36,9 +49,6 @@ const Review = () => {
 
 
   return (
-
-
-
     <>
       <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="" />
       <h1>{review.reviewTitle}</h1>
@@ -83,9 +93,13 @@ const Review = () => {
         <button type="submit">Submit</button>
       </form>
       <h2>Comments</h2>
-      {/* {review.comments.map(comment => 
+      {comments.map((comment: Comment) => 
+      <div key={comment.id}>
+        <p>{comment.commentBy.userName}</p>
         <p>{comment.commentText}</p>
-        )} */}
+        <p>{comment.reaction}</p>
+      </div>
+        )}
 
     </>
   );
