@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ProfilePageProps } from "../../types/props";
 import { Show, Review } from "../../types/models";
 
+import profilePageStyles from "./ProfilePage.module.css"
 
 const Profile = (props: ProfilePageProps) => {
 
@@ -19,7 +20,7 @@ const Profile = (props: ProfilePageProps) => {
   const reviews = profile.reviews
 
   return (
-    <>
+    <div className={profilePageStyles.page}>
       <h1>Profile Page</h1>
       <Link to="/edit-profile">
         Edit Profile
@@ -50,7 +51,7 @@ const Profile = (props: ProfilePageProps) => {
           <p>{review.reviewContent}</p>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
