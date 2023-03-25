@@ -1,4 +1,4 @@
-
+import homeStyles from "./Home.module.css"
 // types
 import { User, Profile } from '../../types/models'
 
@@ -13,8 +13,7 @@ const Home = (props: HomeProps): JSX.Element => {
   
 
   return (
-    <div className="home-page">
-      <img src={profile.photo} alt="" />
+    <div className={homeStyles.page}>
       <h1 id="landing-page">Welcome to Syndicate.</h1>
       <h2 id="landing-page">Keeping up with TV content made easy and social.</h2>
       <h5 id="landing-page">See what others are up to on the Community tab.</h5>
