@@ -7,6 +7,8 @@ import { Show } from '../../types/models'
 
 import CommunityCard from "../../components/CommunityCard/CommunityCard";
 
+import communityStyles from "./Community.module.css"
+
 const Community = () => {
 
   const [shows, setShows] = useState([])
@@ -23,16 +25,15 @@ const Community = () => {
     }
   }, [])
 
-  console.log(shows)
 
   return (
-    <div>
-      <h1>Community Page</h1>
-      {shows.map((show: Show) =>
-        <div>
-          <CommunityCard show={show}/>
-        </div>
-      )}
+    <div className={communityStyles.page}>
+      <h1>Community</h1>
+      <div className={communityStyles.cardList}>
+        {shows.map((show: Show) =>
+          <CommunityCard key={show.id} show={show} />
+        )}
+      </div>
     </div>
   );
 }

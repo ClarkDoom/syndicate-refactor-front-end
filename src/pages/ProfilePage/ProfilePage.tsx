@@ -18,9 +18,6 @@ const Profile = (props: ProfilePageProps) => {
   })
   const reviews = profile.reviews
 
-  console.log(reviews)
-
-
   return (
     <>
       <h1>Profile Page</h1>
