@@ -21,6 +21,12 @@ export interface CommunityCardProps {
 export interface ProfilePageProps {
   profile: Profile, 
 }
+export interface ListCardProps {
+  show: Show, 
+  selectedList: string,
+  changeListType: (evt: any) => Promise<void>,
+  deleteShow: (evt: any) => Promise<void>
+}
 export interface EditProfileModuleProps {
   profile: Profile, 
   setChangeOccured: Dispatch<SetStateAction<boolean>>,
