@@ -4,20 +4,27 @@
 }
 
 .listNavigation {
-  display: flex;
-  flex-direction: column;
-  background-color: grey;
-  align-self: stretch;
   position: absolute;
+  top: 0;
+  bottom: 0;
   height: 100%;
+  left: 0;
+  width: 200px;
+  overflow: hidden;
+  transition: width 0.2s linear;
+  /* display: flex; */
+  /* flex-direction: column; */
+  background-color: grey;
+  /* align-self: stretch; */
+  /* height: 100%; */
 }
 
 .cardList {
-  position:sticky;
   display: flex;
   flex-direction: row;
   gap: 10px;
   justify-content: space-around;
   padding: 10px;
+  margin: auto;
 }
 
