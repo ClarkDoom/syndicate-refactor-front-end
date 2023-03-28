@@ -1,15 +1,18 @@
 import { ListCardProps } from "../../types/props";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import ListCardStyles from "../ListCard/ListCard.module.css"
 
 const ListCard = (props: ListCardProps) => {
   const { show, selectedList, changeListType, deleteShow } = props
+  const navigate = useNavigate()
 
   const handleReviewButton = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(event)
-    const target = event.target as HTMLSelectElement
-    setSelectedList(target.id);
+    navigate('/create-review', {
+      state: {
+        showId: show.id
+      }
+    })
   };
 
 
@@ -31,10 +34,10 @@ const ListCard = (props: ListCardProps) => {
         }
         {selectedList === "seen it" &&
           <>
-            <button>
-              <Link to="/create-review" state={{ showId: show.id }}>
+            <button onClick={handleReviewButton}>
+              {/* <Link to="/create-review" state={{ showId: show.id }}> */}
                 Write Review
-              </Link>
+              {/* </Link> */}
             </button>
             <button id={show.id} onClick={deleteShow}>Remove</button>
           </>
