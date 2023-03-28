@@ -1,14 +1,23 @@
 .page {
   display: flex;
+  flex-direction: row;
+}
+
+.listNavigation {
+  display: flex;
   flex-direction: column;
+  background-color: grey;
+  align-self: stretch;
+  position: absolute;
+  height: 100%;
 }
 
 .cardList {
+  position:sticky;
   display: flex;
   flex-direction: row;
   gap: 10px;
   justify-content: space-around;
   padding: 10px;
 }
-
 

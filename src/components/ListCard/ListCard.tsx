@@ -12,7 +12,7 @@ const ListCard = (props: ListCardProps) => {
       <div className={ListCardStyles.buttons}>
         {selectedList === "watchlist" &&
           <>
-            <button id={show.id} value="currently watching" onClick={changeListType}>Currently Watching</button>
+            <button id={show.id} value="currently watching" onClick={changeListType}>Watching</button>
             <button id={show.id} onClick={deleteShow}>Remove</button>
           </>
         }

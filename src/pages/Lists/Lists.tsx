@@ -18,7 +18,7 @@ const Watchlist = (props: ProfileListsProps) => {
   //! remove any type
   const [profileShows, setProfileShows] = useState<any>([])
   const [selectedList, setSelectedList] = useState(listType ? listType : "")
-  
+
   useEffect((): void => {
     const fetchProfileShows = async (): Promise<any> => {
       try {
@@ -31,7 +31,7 @@ const Watchlist = (props: ProfileListsProps) => {
     fetchProfileShows()
     // rerender shows when selectedList changes
   }, [selectedList])
-  
+
   const [filteredShows, setFilteredShows] = useState(profileShows)
 
   //! remove any type - filter functions
@@ -83,23 +83,27 @@ const Watchlist = (props: ProfileListsProps) => {
 
   return (
     <div className={ListsStyles.page}>
-      <div className="list-filter">
-        <div>Filter by List Type :</div>
-        <select
-          id="brand-input"
-          value={selectedList}
-          onChange={handleListChange}
-        >
-          <option value="">All</option>
-          <option value="watchlist">Watchlist</option>
-          <option value="currently watching">Currently Watching</option>
-          <option value="seen it">Seen It</option>
-        </select>
+
+      <div className={ListsStyles.listNavigation}>
+        <div className="list-filter">
+          <div>Filter by List Type :</div>
+          <select
+            id="brand-input"
+            value={selectedList}
+            onChange={handleListChange}
+          >
+            <option value="">All</option>
+            <option value="watchlist">Watchlist</option>
+            <option value="currently watching">Currently Watching</option>
+            <option value="seen it">Seen It</option>
+          </select>
+        </div>
       </div>
+
 
       <div className={ListsStyles.cardList}>
         {filteredShows.map((show: any, index: number) => (
-          <ListCard show={show} selectedList={selectedList} changeListType={changeListType} deleteShow={deleteShow} key={index}/>
+          <ListCard show={show} selectedList={selectedList} changeListType={changeListType} deleteShow={deleteShow} key={index} />
           // <div className="show-item" key={index}>
           //   <div className="show-name">{`Name: ${show.showName}`}</div>
           //   <div className="show-description">{`Overview: ${show.showDescription}`}</div>
