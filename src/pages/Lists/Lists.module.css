@@ -47,3 +47,7 @@
   padding: 10px;
   border: 0px;
 }
+
+.listNavigationButtons button:hover {
+  opacity: .7;
+}

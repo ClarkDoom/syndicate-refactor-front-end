@@ -6,6 +6,13 @@ import ListCardStyles from "../ListCard/ListCard.module.css"
 const ListCard = (props: ListCardProps) => {
   const { show, selectedList, changeListType, deleteShow } = props
 
+  const handleReviewButton = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(event)
+    const target = event.target as HTMLSelectElement
+    setSelectedList(target.id);
+  };
+
+
   return (
     <div className={ListCardStyles.card}>
         <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
