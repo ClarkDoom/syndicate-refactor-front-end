@@ -51,3 +51,7 @@
 .listNavigationButtons button:hover {
   opacity: .7;
 }
+
+.activeButton {
+  color: rgb(53,67,83) !important;
+}

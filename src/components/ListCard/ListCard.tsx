@@ -7,7 +7,7 @@ const ListCard = (props: ListCardProps) => {
   const { show, selectedList, changeListType, deleteShow } = props
   const navigate = useNavigate()
 
-  const handleReviewButton = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleReviewButton = () => {
     navigate('/create-review', {
       state: {
         showId: show.id
