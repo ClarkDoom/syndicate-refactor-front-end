@@ -45,9 +45,10 @@ const Watchlist = (props: ProfileListsProps) => {
     return filteredLists;
   };
 
-  const handleListChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleListChange = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(event)
     const target = event.target as HTMLSelectElement
-    setSelectedList(target.value);
+    setSelectedList(target.id);
   };
 
   useEffect(() => {
@@ -83,55 +84,25 @@ const Watchlist = (props: ProfileListsProps) => {
 
   return (
     <div className={ListsStyles.page}>
-
-      <div className={ListsStyles.listNavigation}>
-        <div className="list-filter">
+      <div className={ListsStyles.wrapper}>
+        <div className={ListsStyles.listNavigation}>
           <div>Filter by List Type :</div>
-          <select
-            id="brand-input"
-            value={selectedList}
-            onChange={handleListChange}
-          >
-            <option value="">All</option>
-            <option value="watchlist">Watchlist</option>
-            <option value="currently watching">Currently Watching</option>
-            <option value="seen it">Seen It</option>
-          </select>
+          <div className={ListsStyles.listNavigationButtons}>
+            <button id=" " onClick={handleListChange}>All</button>
+            <button id="watchlist" onClick={handleListChange}>Watchlist</button>
+            <button id="currently watching" onClick={handleListChange}>Currently Watching</button>
+            <button id="seen it" onClick={handleListChange}>Seen It</button>
+          </div>
+          <div>
+            <div>Custom Lists :</div>
+            <div>COMING SOON</div>
+          </div>
         </div>
-      </div>
-
-
-      <div className={ListsStyles.cardList}>
-        {filteredShows.map((show: any, index: number) => (
-          <ListCard show={show} selectedList={selectedList} changeListType={changeListType} deleteShow={deleteShow} key={index} />
-          // <div className="show-item" key={index}>
-          //   <div className="show-name">{`Name: ${show.showName}`}</div>
-          //   <div className="show-description">{`Overview: ${show.showDescription}`}</div>
-          //   <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="" className="show-image" />
-          //   {selectedList === "watchlist" &&
-          //     <div>
-          //       <button id={show.id} value="currently watching" onClick={changeListType}>Currently Watching</button>
-          //       <button id={show.id} onClick={deleteShow}>Remove</button>
-          //     </div>
-          //   }
-          //   {selectedList === "currently watching" &&
-          //     <div>
-          //       <button id={show.id} value="seen it" onClick={changeListType}>Seen It</button>
-          //       <button id={show.id} onClick={deleteShow}>Remove</button>
-          //     </div>
-          //   }
-          //   {selectedList === "seen it" &&
-          //     <div>
-          //       <button>
-          //         <Link to="/create-review" state={{showId: show.id}}>
-          //         Write Review
-          //         </Link>
-          //       </button>
-          //       <button id={show.id} onClick={deleteShow}>Remove</button>
-          //     </div>
-          //   }
-          // </div>
-        ))}
+        <div className={ListsStyles.cardList}>
+          {filteredShows.map((show: any, index: number) => (
+            <ListCard show={show} selectedList={selectedList} changeListType={changeListType} deleteShow={deleteShow} key={index} />
+          ))}
+        </div>
       </div>
     </div>
   );
