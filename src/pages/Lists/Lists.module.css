@@ -1,0 +1,14 @@
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+

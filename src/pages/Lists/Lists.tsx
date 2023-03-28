@@ -7,6 +7,9 @@ import { ProfileListsProps } from "../../types/props";
 import { Show } from "../../types/models";
 import ListCard from '../../components/ListCard/ListCard';
 
+
+import ListsStyles from "../Lists/Lists.module.css"
+
 const Watchlist = (props: ProfileListsProps) => {
   const location = useLocation()
   const listType = location.state?.listType
@@ -79,7 +82,7 @@ const Watchlist = (props: ProfileListsProps) => {
   if (!profileShows) return <h1>loading</h1>
 
   return (
-    <>
+    <div className={ListsStyles.page}>
       <div className="list-filter">
         <div>Filter by List Type :</div>
         <select
@@ -94,9 +97,9 @@ const Watchlist = (props: ProfileListsProps) => {
         </select>
       </div>
 
-      <div id="show-list">
+      <div className={ListsStyles.cardList}>
         {filteredShows.map((show: any, index: number) => (
-          <ListCard show={show} selectedList={selectedList} changeListType={changeListType} deleteShow={deleteShow}/>
+          <ListCard show={show} selectedList={selectedList} changeListType={changeListType} deleteShow={deleteShow} key={index}/>
           // <div className="show-item" key={index}>
           //   <div className="show-name">{`Name: ${show.showName}`}</div>
           //   <div className="show-description">{`Overview: ${show.showDescription}`}</div>
@@ -126,7 +129,7 @@ const Watchlist = (props: ProfileListsProps) => {
           // </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
