@@ -23,7 +23,10 @@ const Watchlist = (props: ProfileListsProps) => {
     const fetchProfileShows = async (): Promise<any> => {
       try {
         const showsData = await showService.getProfileShows(profileId)
-        setProfileShows(showsData)
+        const filteredShows = showsData.filter((show: Show) => {
+          return (show.showType.toString() != "favorite")
+        })
+        setProfileShows(filteredShows)
       } catch (error) {
         console.log(error)
       }
