@@ -15,17 +15,6 @@ const CommunityCard = (props: CommunityCardProps) => {
         <p>Added By: {show.profile.userName}</p>
         <p>Added To: {show.showType}</p>
       </div>
-      {/* {show.reviews ?
-        <div className="community-card-reviews">
-          {show.reviews.map((review: Review) =>
-            <Link key={review.id} to="/review" state={{ show: show, review: review }}>
-              {review.reviewTitle}
-            </Link>
-          )}
-        </div>
-        :
-        "no reviews"
-      } */}
     </div>
   );
 }

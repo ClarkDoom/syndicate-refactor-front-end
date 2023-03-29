@@ -18,6 +18,9 @@ export interface ProfileListsProps {
 export interface CommunityCardProps {
   show: Show, 
 }
+export interface CommunityReviewCardProps {
+  review: Review, 
+}
 export interface ProfilePageProps {
   profile: Profile, 
 }

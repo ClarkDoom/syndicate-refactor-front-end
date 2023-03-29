@@ -9,6 +9,7 @@ import { Show, Review } from '../../types/models'
 import CommunityActivityCard from "../../components/CommunityActivityCard/CommunityActivityCard";
 
 import communityStyles from "./Community.module.css"
+import CommunityReviewCard from "../../components/CommunityReviewCard/CommunityReviewCard";
 
 const Community = () => {
 
@@ -50,11 +51,7 @@ const Community = () => {
       <div className={communityStyles.reviews}>
         <h3>Reviews</h3>
         {reviews.map((review: Review) => 
-        <>
-          <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${review.reviewOf.imageUrl}`} alt="" />
-          <p>{review.reviewTitle}</p>
-          <p>{review.reviewContent}</p>
-        </>
+          <CommunityReviewCard review={review}/>
         )}
       </div>
       <div className={communityStyles.conversation}>Conversation</div>

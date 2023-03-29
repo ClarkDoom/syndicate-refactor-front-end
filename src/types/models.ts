@@ -105,6 +105,7 @@ export interface Review {
   tmbdShowId: string;
   reviewFor: { id: number };
   reviewOf: Show;
+  reviewBy: Profile;
   reviewForType: string;
   reviewTitle: string;
   createdAt: string;
