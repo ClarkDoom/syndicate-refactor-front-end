@@ -5,13 +5,14 @@ import { Show } from '../../types/models'
 
 
 
-import CommunityCard from "../../components/CommunityCard/CommunityCard";
+import CommunityActivityCard from "../../components/CommunityActivityCard/CommunityActivityCard";
 
 import communityStyles from "./Community.module.css"
 
 const Community = () => {
 
   const [shows, setShows] = useState([])
+  const [reviews, setReviews] = useState([])
 
   useEffect(() => {
     try {
@@ -24,16 +25,31 @@ const Community = () => {
       console.log(error)
     }
   }, [])
-
+  
+  useEffect(() => {
+    try {
+      async function findAllReviews() {
+        const response = await reviewService.index()
+        setShows(response)
+      }
+      findAllReviews()
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
 
   return (
     <div className={communityStyles.page}>
-      <h1>Community</h1>
-      <div className={communityStyles.cardList}>
-        {shows.map((show: Show) =>
-          <CommunityCard key={show.id} show={show} />
+      <div className={communityStyles.activity}>
+        <h3>Activity</h3>
+        {shows.map((show: Show) => 
+          <CommunityActivityCard show={show} />
         )}
       </div>
+      <div className={communityStyles.reviews}>
+        <h3>Reviews</h3>
+      </div>
+      <div className={communityStyles.conversation}>Conversation</div>
     </div>
   );
 }
