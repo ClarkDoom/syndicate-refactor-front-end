@@ -1,6 +1,4 @@
 import { CommunityCardProps } from '../../types/props'
-import { Link } from "react-router-dom";
-import { Review } from '../../types/models'
 import communityActivityCardStyles from "./CommunityActivityCard.module.css"
 
 const CommunityCard = (props: CommunityCardProps) => {

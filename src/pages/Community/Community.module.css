@@ -8,6 +8,9 @@
 .reviews, .activity, .conversation {
   width: 33%;
   height: 90vh;
-  border: 2px solid red;
   overflow-y: scroll;
+}
+
+h3 {
+  text-align: center;
 }

@@ -25,16 +25,6 @@ export interface User {
 }
 
 export interface Show {
-  // id: number;
-  // tmbdShowId: string;
-  // addedBy: { id: number};
-  // name: string;
-  // seasons: [];
-  // showDescription: string;
-  // imageUrl: string;
-  // listType: string;
-  // createdAt: string;
-  // updatedAt: string;
   id: '',
   tmbdShowId: 0,
   addedBy: 0,
@@ -120,5 +110,6 @@ export interface Comment {
   createdBy: { id: number }
   createdAt: string;
   updatedAt: string;
-  commentBy: Profile
+  commentBy: Profile;
+  commentFor: Review;
 }

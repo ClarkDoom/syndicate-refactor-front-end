@@ -1,6 +1,6 @@
 // types
 import { SetStateAction } from 'react';
-import { Show, Profile, Review } from './models'
+import { Show, Profile, Review, Comment } from './models'
 import { Dispatch } from 'react';
 
 /* ---------======= custom props ======--------- */
@@ -20,6 +20,9 @@ export interface CommunityCardProps {
 }
 export interface CommunityReviewCardProps {
   review: Review, 
+}
+export interface CommunityCommentCardProps {
+  comment: Comment, 
 }
 export interface ProfilePageProps {
   profile: Profile, 

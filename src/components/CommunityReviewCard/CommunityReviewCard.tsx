@@ -12,6 +12,7 @@ const CommunityReviewCard = (props: CommunityReviewCardProps) => {
       <div className={communityReviewCardStyles.cardDetails}>
         <p>{review.reviewTitle}</p>
         <p>{review.reviewContent}</p>
+        <button>Read More</button>
         <p>{review.reviewBy.userName}</p>
       </div>
     </div>
