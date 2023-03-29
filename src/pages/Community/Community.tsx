@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 import * as showService from '../../services/showService'
-import { Show } from '../../types/models'
+import * as reviewService from '../../services/reviewService'
+import { Show, Review } from '../../types/models'
 
 
 
@@ -30,7 +31,7 @@ const Community = () => {
     try {
       async function findAllReviews() {
         const response = await reviewService.index()
-        setShows(response)
+        setReviews(response)
       }
       findAllReviews()
     } catch (error) {
@@ -48,6 +49,13 @@ const Community = () => {
       </div>
       <div className={communityStyles.reviews}>
         <h3>Reviews</h3>
+        {reviews.map((review: Review) => 
+        <>
+          <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${review.reviewOf.imageUrl}`} alt="" />
+          <p>{review.reviewTitle}</p>
+          <p>{review.reviewContent}</p>
+        </>
+        )}
       </div>
       <div className={communityStyles.conversation}>Conversation</div>
     </div>

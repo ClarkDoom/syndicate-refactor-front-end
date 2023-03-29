@@ -104,6 +104,7 @@ export interface Review {
   author: { id: number };
   tmbdShowId: string;
   reviewFor: { id: number };
+  reviewOf: Show;
   reviewForType: string;
   reviewTitle: string;
   createdAt: string;
