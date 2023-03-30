@@ -25,6 +25,8 @@ const Community = () => {
       console.log(error)
     }
   }, [])
+  //! remove any type
+
 
   useEffect(() => {
     try {

@@ -49,7 +49,6 @@ const Watchlist = (props: ProfileListsProps) => {
   };
 
   const handleListChange = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(event)
     const target = event.target as HTMLSelectElement
     setSelectedList(target.id);
   };
@@ -91,7 +90,7 @@ const Watchlist = (props: ProfileListsProps) => {
         <div className={ListsStyles.listNavigation}>
           <div>Filter by List Type :</div>
           <div className={ListsStyles.listNavigationButtons}>
-            <button className={selectedList == " " ? ListsStyles.activeButton : ''} id=" " onClick={handleListChange}>All</button>
+            <button className={selectedList == "" ? ListsStyles.activeButton : ''} id="" onClick={handleListChange}>All</button>
             <button className={selectedList == "watchlist" ? ListsStyles.activeButton : ''} id="watchlist" onClick={handleListChange}>Watchlist</button>
             <button className={selectedList == "currently watching" ? ListsStyles.activeButton : ''} id="currently watching" onClick={handleListChange}>Currently Watching</button>
             <button className={selectedList == "seen it" ? ListsStyles.activeButton : ''} id="seen it" onClick={handleListChange}>Seen It</button>
