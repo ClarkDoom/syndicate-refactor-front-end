@@ -14,7 +14,7 @@ import { CreateShowForm } from "../../types/forms";
 const TvShowResult = (props: TvShowResultProps): JSX.Element => {
   const location = useLocation()
   const navigate = useNavigate()
-  const result = location.state.result
+  const resultId = location.state.resultId
 
   const { profileId } = props
 
@@ -38,7 +38,7 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
   useEffect(() => {
     try {
       async function findShow() {
-        const response = await searchService.findShow(result.id)
+        const response = await searchService.findShow(resultId)
         setTvShow({
           name: response.name,
           seasons: response.seasons,
@@ -52,7 +52,7 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
     } catch (err) {
       console.log(err)
     }
-  }, [result])
+  }, [resultId])
 
   useEffect(() => {
     try {

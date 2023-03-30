@@ -18,7 +18,7 @@ const SearchResults = () => {
           <p>-----------</p>
           <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${result.poster_path}`} alt="" />
           <p>
-            <Link to="/tv-show-result" state={{ result: result }}>
+            <Link to="/tv-show-result" state={{ resultId: result.id }}>
               {result.name}
             </Link>
           </p>

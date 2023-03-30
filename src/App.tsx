@@ -34,6 +34,7 @@ import './App.css'
 // types
 import { User, Profile, Show } from './types/models'
 import EditProfileModule from './components/EditProfileModule/EditProfileModule'
+import PublicProfile from './pages/PublicProfile/PublicProfile'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -83,6 +84,7 @@ function App(): JSX.Element {
         <Route path="/community" element={<Community />} />
         <Route path="/lists" element={<Lists profileId={profile.id}/>} />
         <Route path="/profile" element={<ProfilePage profile={profile}/>} />
+        <Route path="/public-profile" element={<PublicProfile/>} />
         <Route path="/edit-profile" element={<EditProfileModule changeOccured={changeOccured} setChangeOccured={setChangeOccured}profile={profile}/>} />
         <Route path="/search-results" element={<SearchResults />} />
         <Route path="/tv-show-result" element={<TvShowResult profileId={profile.id} />} />

@@ -15,7 +15,6 @@ const ListCard = (props: ListCardProps) => {
     })
   };
 
-
   return (
     <div className={ListCardStyles.card}>
         <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
@@ -35,9 +34,7 @@ const ListCard = (props: ListCardProps) => {
         {selectedList === "seen it" &&
           <>
             <button onClick={handleReviewButton}>
-              {/* <Link to="/create-review" state={{ showId: show.id }}> */}
                 Write Review
-              {/* </Link> */}
             </button>
             <button id={show.id} onClick={deleteShow}>Remove</button>
           </>

@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: row;
   padding: 10px;
-  height: 150px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .card img {
   border-radius: 10px;
+  height: 160px;
 }
 
 .cardDetails {

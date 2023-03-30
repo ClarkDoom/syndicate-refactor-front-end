@@ -11,6 +11,9 @@
   overflow-y: scroll;
 }
 
-h3 {
-  text-align: center;
+.divider {
+  border-top: 4px solid #5a5a5a;
+  border-radius: 5px;
+  width: 90%;
+  margin: 0 auto;
 }

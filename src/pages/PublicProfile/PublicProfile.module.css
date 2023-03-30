@@ -1,0 +1,10 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.page img {
+  width: 20%;
+  align-self: center;
+}
