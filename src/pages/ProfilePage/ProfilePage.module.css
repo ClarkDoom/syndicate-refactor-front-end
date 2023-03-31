@@ -100,10 +100,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .statsHeaders p {
-  width: 33%;
+  width: 25%;
   font-weight: bold;
 }
 
 .statsData  p {
-  width: 33%;
+  width: 25%;
 }
