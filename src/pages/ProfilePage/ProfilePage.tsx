@@ -22,7 +22,7 @@ const Profile = (props: ProfilePageProps) => {
 
   return (
     <div className={profilePageStyles.page}>
-      <h1>{profile.userName}</h1>
+      <h1 className={profilePageStyles.userName}>@{profile.userName}</h1>
       <div className={profilePageStyles.actionButtons}>
         <Link
           className={profilePageStyles.actionButton}
@@ -42,9 +42,9 @@ const Profile = (props: ProfilePageProps) => {
         <div className={profilePageStyles.profileInfo}>
           <p>{profile.aboutMe}</p>
           <div className={profilePageStyles.statsHeaders}>
-            <p>Shows Watched</p>
             <p>Show's in Watchlist</p>
             <p>Show's in Currently Watching</p>
+            <p>Shows Watched</p>
           </div>
           <div className={profilePageStyles.statsData}>
             <p>999</p>
@@ -57,7 +57,9 @@ const Profile = (props: ProfilePageProps) => {
         <h1>Favorites</h1>
         <div className={profilePageStyles.sectionShows}>
           {favoriteShows.map((show: Show) =>
-            <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
+            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }}>
+              <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
+            </Link>
           )}
         </div>
       </div>
@@ -65,7 +67,9 @@ const Profile = (props: ProfilePageProps) => {
         <h1>Currently Watching</h1>
         <div className={profilePageStyles.sectionShows}>
           {currentlyWatching.map((show: Show) =>
-            <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
+            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }}>
+              <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
+            </Link>
           )}
         </div>
       </div>
@@ -73,7 +77,9 @@ const Profile = (props: ProfilePageProps) => {
         <h1>Show's Seen</h1>
         <div className={profilePageStyles.sectionShows}>
           {seenIt.map((show: Show) =>
-            <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
+            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }}>
+              <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
+            </Link>
           )}
         </div>
       </div>
@@ -82,8 +88,10 @@ const Profile = (props: ProfilePageProps) => {
         <div className={profilePageStyles.sectionShows}>
           {reviews.map((review: Review) =>
             <div className={profilePageStyles.reviews}>
-              <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${review.reviewOf.imageUrl}`} alt="TV Show Poster" />
-              <p>{review.reviewTitle}</p>
+              <Link to="/review" state={{review: review, show: review.reviewOf}}>
+                <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${review.reviewOf.imageUrl}`} alt="TV Show Poster" />
+                <p>{review.reviewTitle}</p>
+              </Link>
             </div>
           )}
         </div>

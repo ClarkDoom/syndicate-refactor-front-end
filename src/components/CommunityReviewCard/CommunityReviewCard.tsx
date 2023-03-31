@@ -19,8 +19,6 @@ const CommunityReviewCard = (props: CommunityReviewCardProps) => {
     })
   };
 
-  console.log("review", review)
-
   return (
     <div className={communityReviewCardStyles.card}>
       <Link to="/tv-show-result" state={{ resultId: review.reviewOf.tmbdShowId }}>

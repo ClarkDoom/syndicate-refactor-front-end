@@ -4,9 +4,28 @@
   text-align: center;
 }
 
+body::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(253,106,8);        /* color of the tracking area */
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(54,173,241);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid black;  /* creates padding around scroll thumb */
+}
+
 .page img {
   width: 20%;
   align-self: center;
+}
+
+.userName {
+  color: rgb(253,106,8);
 }
 
 .actionButtons {
@@ -62,8 +81,15 @@
   border-radius: 10px;
 }
 
-.reviews p {
+.section h1 {
+  color: rgb(54,173,241)
+}
+
+.reviews a {
   font-size: xx-small;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .statsHeaders, .statsData {
