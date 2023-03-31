@@ -8,3 +8,76 @@
   width: 20%;
   align-self: center;
 }
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.actionButton {
+  border-radius: 10px;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  background-color: rgb(28, 223,66);
+  color: white;
+  border: 0px;
+  text-decoration: none;
+}
+
+.actionButton:hover {
+  opacity: .7;
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.profileSection img {
+  border-radius: 10px;
+}
+
+.profileInfo {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+.sectionShows {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.section img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.reviews p {
+  font-size: xx-small;
+}
+
+.statsHeaders, .statsData {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.statsHeaders p {
+  width: 33%;
+  font-weight: bold;
+}
+
+.statsData  p {
+  width: 33%;
+}
