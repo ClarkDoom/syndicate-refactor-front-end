@@ -1,0 +1,78 @@
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.section1 {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  margin-top: 10px;
+}
+
+.section1 img {
+  border-radius: 10px;
+}
+
+.subsection1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.reviewDetails {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-left: 10px
+}
+
+.leaveComment {
+  align-self: flex-start;
+}
+
+.discussion {
+  align-self: center;
+  align-items:center;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(53,67,83);
+  border-radius: 20px;
+  padding: 10px;
+  width: 50%;
+}
+
+.comment img {
+  width: 40%;
+  border-radius: 20px;
+}
+
+.commentSection1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.reaction {
+  justify-items: center;
+  width: 50%;
+}
+
+.reaction p {
+  font-size: xx-large;
+  text-align: center;
+}
+
+.userNameAndPhoto {
+  justify-items: center;
+  width: 50%;
+}

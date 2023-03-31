@@ -1,6 +1,7 @@
 import { Comment } from '../../types/models'
 import { useLocation } from 'react-router';
 import { useState, useEffect } from 'react';
+import reviewStyles from "../Review/Review.module.css"
 
 // services
 import * as commentService from '../../services/commentService'
@@ -10,7 +11,7 @@ const Review = () => {
   const review = location.state.review
   const show = location.state.show
 
-  const [comments, setComments ] = useState([])
+  const [comments, setComments] = useState([])
 
   const [commentForm, setCommentForm] = useState<any>({
     commentText: "",
@@ -46,61 +47,82 @@ const Review = () => {
     }
   }
 
+  console.log(review)
 
   return (
-    <>
-      <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="" />
-      <h1>{review.reviewTitle}</h1>
-      <p>{review.reviewContent}</p>
-      <p>{review.rating}</p>
-      <h2>Leave Comment</h2>
-      <form
-        className="form"
-        autoComplete="off"
-        onSubmit={handleSubmit}
-      >
-        <div>
-          <label
-            className="placeholder"
-            htmlFor="rating">Reaction</label>
-          <select
-            className="input"
-            id="reaction"
-            value={reaction}
-            name="reaction"
-            onChange={selectChange}
+    <div className={reviewStyles.page}>
+      <div className={reviewStyles.section1}>
+        <div className={reviewStyles.subsection1}>
+          <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="" />
+          <div className={reviewStyles.reviewDetails}>
+            <h2>{review.reviewTitle}</h2>
+            <p>Review by @{review.reviewBy.userName}</p>
+            <p>{review.reviewContent}</p>
+            <p>{review.rating}</p>
+          </div>
+        </div>
+        <div className={reviewStyles.leaveComment}>
+          <h2>Leave Comment</h2>
+          <form
+            className="form"
+            autoComplete="off"
+            onSubmit={handleSubmit}
           >
-            <option value=""></option>
-            <option value="👍">👍</option>
-            <option value="👎">👎</option>
-            <option value="😑">😑</option>
-            <option value="😂">😂</option>
-            <option value="🧠">🧠</option>
-            <option value="🤯">🤯</option>
-          </select>
+            <div>
+              <label
+                className="placeholder"
+                htmlFor="rating">Reaction</label>
+              <select
+                className="input"
+                id="reaction"
+                value={reaction}
+                name="reaction"
+                onChange={selectChange}
+              >
+                <option value=""></option>
+                <option value="👍">👍</option>
+                <option value="👎">👎</option>
+                <option value="😑">😑</option>
+                <option value="😂">😂</option>
+                <option value="🧠">🧠</option>
+                <option value="🤯">🤯</option>
+              </select>
+            </div>
+            <div>
+              <textarea
+                value={commentText}
+                onChange={(
+                  ev: React.ChangeEvent<HTMLTextAreaElement>,
+                ): void => setCommentForm({ ...commentForm, commentText: ev.target.value })}
+                rows={5}
+                cols={40}
+              />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
         </div>
-        <div>
-          <textarea
-            value={commentText}
-            onChange={(
-              ev: React.ChangeEvent<HTMLTextAreaElement>,
-            ): void => setCommentForm({ ...commentForm, commentText: ev.target.value })}
-            rows={5}
-            cols={5}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      <h2>Comments</h2>
-      {comments.map((comment: Comment) => 
-      <div key={comment.id}>
-        <p>{comment.commentBy.userName}</p>
-        <p>{comment.commentText}</p>
-        <p>{comment.reaction}</p>
       </div>
-        )}
 
-    </>
+      <div className={reviewStyles.discussion}>
+        <h2>Discussion</h2>
+        {comments.map((comment: Comment) =>
+          <div key={comment.id} className={reviewStyles.comment}>
+            <div className={reviewStyles.commentSection1}>
+              <div className={reviewStyles.userNameAndPhoto}>
+                <img src={comment.commentBy.photo} alt="" />
+                <p>@{comment.commentBy.userName}</p>
+              </div>
+              <div className={reviewStyles.reaction}>
+                <p >{comment.reaction}</p>
+              </div>
+            </div>
+            <div>
+              <p>{comment.commentText}</p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
