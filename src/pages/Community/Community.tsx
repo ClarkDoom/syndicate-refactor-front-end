@@ -54,32 +54,38 @@ const Community = () => {
 
   return (
     <div className={communityStyles.page}>
-      <div className={communityStyles.activity}>
-        <h3>Activity</h3>
-        {shows.map((show: Show) =>
-          <>
-            <CommunityActivityCard key={show.id} show={show} />
-            <div className={communityStyles.divider}></div>
-          </>
-        )}
+      <div className={communityStyles.headerAndCardList}>
+        <h3 className={communityStyles.header}>Activity</h3>
+        <div className={communityStyles.activity}>
+          {shows.map((show: Show) =>
+            <>
+              <CommunityActivityCard key={show.id} show={show} />
+              <div className={communityStyles.divider}></div>
+            </>
+          )}
+        </div>
       </div>
-      <div className={communityStyles.reviews}>
-        <h3>Reviews</h3>
-        {reviews.map((review: Review) =>
-          <>
-            <CommunityReviewCard key={review.id} review={review} />
-            <div className={communityStyles.divider}></div>
-          </>
-        )}
+      <div className={communityStyles.headerAndCardList}>
+        <h3 className={communityStyles.header}>Reviews</h3>
+        <div className={communityStyles.reviews}>
+          {reviews.map((review: Review) =>
+            <>
+              <CommunityReviewCard key={review.id} review={review} />
+              <div className={communityStyles.divider}></div>
+            </>
+          )}
+        </div>
       </div>
-      <div className={communityStyles.conversation}>
-        <h3>Conversation</h3>
-        {comments.map((comment: Comment) =>
-          <>
-            <CommunityCommentCard key={comment.id} comment={comment} />
-            <div className={communityStyles.divider}></div>
-          </>
-        )}
+      <div className={communityStyles.headerAndCardList}>
+        <h3 className={communityStyles.header}>Conversation</h3>
+        <div className={communityStyles.conversation}>
+          {comments.map((comment: Comment) =>
+            <>
+              <CommunityCommentCard key={comment.id} comment={comment} />
+              <div className={communityStyles.divider}></div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

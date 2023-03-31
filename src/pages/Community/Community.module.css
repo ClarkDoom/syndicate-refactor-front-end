@@ -5,14 +5,69 @@
   justify-content: space-around;
 }
 
+
 .page a:hover {
   opacity: .7;
 }
 
-.reviews, .activity, .conversation {
+.header {
+  text-align: center;
+}
+
+.headerAndCardList {
   width: 33%;
-  height: 90vh;
+  
+}
+
+.reviews, .activity, .conversation {
+  height: 85vh;
   overflow-y: scroll;
+  background-color: rgb(25,28,34);
+  border-radius: 20px;
+}
+
+/* scroll bars  */
+.activity::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+.activity::-webkit-scrollbar-track {
+  background: rgb(253,106,8);        /* color of the tracking area */
+  border-radius: 20px;
+}
+
+.activity::-webkit-scrollbar-thumb {
+  background-color: rgb(54,173,241);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid black;  /* creates padding around scroll thumb */
+}
+.reviews::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+.reviews::-webkit-scrollbar-track {
+  background: rgb(253,106,8);        /* color of the tracking area */
+  border-radius: 20px;
+}
+
+.reviews::-webkit-scrollbar-thumb {
+  background-color: rgb(54,173,241);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid black;  /* creates padding around scroll thumb */
+}
+.conversation::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+.conversation::-webkit-scrollbar-track {
+  background: rgb(253,106,8);        /* color of the tracking area */
+  border-radius: 20px;
+}
+
+.conversation::-webkit-scrollbar-thumb {
+  background-color: rgb(54,173,241);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid black;  /* creates padding around scroll thumb */
 }
 
 .divider {
