@@ -9,23 +9,31 @@ const CommunityCard = (props: CommunityCardProps) => {
 
   const formattedListType = show.showType.toUpperCase()
   const formattedShowName = " " + show.showName.toUpperCase() + " "
-  const formattedUserName = " " + show.profile.userName.toUpperCase()+ " "
+  const formattedUserName = show.profile.userName.toUpperCase() + " "
 
   return (
     <div className={communityActivityCardStyles.card}>
-      <Link to="/tv-show-result" state={{resultId: show.tmbdShowId}}>
+      <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }}>
         <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="" />
       </Link>
       <div className={communityActivityCardStyles.cardDetails}>
         <p>
-          <Link to="/public-profile" state = {{profileId: show.addedBy}}>
-          @{formattedUserName} 
+          <Link
+            to="/public-profile"
+            state={{ profileId: show.addedBy }}
+            className={communityActivityCardStyles.userName}
+          >
+            @{formattedUserName}
           </Link>
-          added 
-        <Link to="/tv-show-result" state={{resultId: show.tmbdShowId}}>
-        {formattedShowName} 
-        </Link> 
-        to their {formattedListType} {formattedListType === "WATCHLIST" ? "" : "list."}</p>
+          added
+          <Link
+            to="/tv-show-result"
+            state={{ resultId: show.tmbdShowId }}
+            className={communityActivityCardStyles.showName}
+          >
+            {formattedShowName}
+          </Link>
+          to their {formattedListType} {formattedListType === "WATCHLIST" ? "" : "list."}</p>
       </div>
     </div>
   );

@@ -30,3 +30,9 @@
 .cardDetails button:hover {
   opacity: .7;
 }
+
+.userName {
+  color: rgb(253,106,8);
+  font-weight: 900;
+  text-decoration:none
+}

@@ -5,6 +5,10 @@
   justify-content: space-around;
 }
 
+.page a:hover {
+  opacity: .7;
+}
+
 .reviews, .activity, .conversation {
   width: 33%;
   height: 90vh;
@@ -17,3 +21,4 @@
   width: 90%;
   margin: 0 auto;
 }
+
