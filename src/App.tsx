@@ -83,7 +83,7 @@ function App(): JSX.Element {
         <Route path="/search" element={<SearchResults />} />
         <Route path="/community" element={<Community />} />
         <Route path="/lists" element={<Lists profileId={profile.id}/>} />
-        <Route path="/profile" element={<ProfilePage profile={profile}/>} />
+        <Route path="/profile" element={<ProfilePage profile={profile} handleLogout={handleLogout}/>} />
         <Route path="/public-profile" element={<PublicProfile/>} />
         <Route path="/edit-profile" element={<EditProfileModule changeOccured={changeOccured} setChangeOccured={setChangeOccured}profile={profile}/>} />
         <Route path="/search-results" element={<SearchResults />} />

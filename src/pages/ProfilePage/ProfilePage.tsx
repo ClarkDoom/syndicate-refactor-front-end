@@ -6,7 +6,7 @@ import profilePageStyles from "./ProfilePage.module.css"
 
 const Profile = (props: ProfilePageProps) => {
 
-  const { profile } = props
+  const { profile, handleLogout } = props
 
   const favoriteShows = profile.shows.filter((show: Show) => {
     return (show.showType.toString() === "favorite")
@@ -42,6 +42,13 @@ const Profile = (props: ProfilePageProps) => {
           className={profilePageStyles.actionButton}
         >
           Change Password
+        </Link>
+        <Link 
+          to="" 
+          onClick={handleLogout} 
+          className={profilePageStyles.actionButton}
+        >
+          Logout
         </Link>
       </div>
       <div className={profilePageStyles.profileSection}>

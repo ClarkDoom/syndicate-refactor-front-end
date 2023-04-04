@@ -1,0 +1,139 @@
+
+.wrapper {
+  /* position: fixed; */
+  height: 50px;
+  background-color: rgb(16,19,21);
+  z-index: 1;
+  display: flex;
+  /* align-items: center; */
+  /* align-content: center; */
+  /* justify-items: center; */
+  justify-content: center;
+}
+
+ul {
+  padding: 0px 0px 0px 0px;
+}
+
+.list {
+  display: flex;
+  list-style-type: none;
+  background-color: rgb(16,19,21);
+  height: 100%;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+  width: 70%;
+
+}
+
+.items {
+  /* margin-right: 20px; */
+  margin: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+  display: flex;
+}
+
+.items a {
+  color: white;
+  text-decoration: none;
+  opacity: .5;
+}
+.items a:hover {
+  opacity: 1;
+}
+
+.navBtn {
+  display: none;
+  position: absolute;
+  top: 7px;
+  /* padding: 5px; */
+  color: #000;
+  font-size: 18px;
+}
+
+.homeLink a {
+  color: white;
+  text-decoration: none;
+  font-size: x-large;
+  opacity: .5;
+}
+#home-link a:hover {
+  opacity: 1;
+}
+
+.wrapper img {
+  width: 10%;
+  background-color: transparent;
+}
+.navBtn {
+  background-color: transparent;
+  border: 0px;
+}
+
+.wrapper form {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrapper input {
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.wrapper button {
+border-radius: 10px;
+padding: 5px;
+font-family: 'Montserrat', sans-serif;
+font-weight: 900;
+background-color: rgb(28, 223,66);
+color: white;
+border: 0px;
+text-decoration: none;
+padding: 10px;
+height: 50%;
+align-self: center;
+}
+
+.wrapper button:hover {
+opacity: .7;
+}
+
+.logout {
+  right: 0;
+}
+
+.logout button {
+}
+
+
+@media screen and (max-width: 575px) {
+  #home a {
+    font-size: medium;
+  }
+  #navLinks a {
+    font-size: small;
+    gap: 0em;
+  }
+  .list {
+    flex-direction: column;
+    height: auto;
+  }
+  .items:nth-child(1){
+    margin-top: 50px;
+  }
+  .items {
+    width: 100%;
+    text-align: center;
+    margin-right: 0px;
+  }
+  .navBtn {
+    display: block;
+  }
+}

@@ -10,6 +10,8 @@ import { User } from '../../types/models'
 // services
 import * as searchService from '../../services/searchService'
 
+import NavBarStyles from "../NavBar/NavBar.module.css"
+
 interface NavBarProps {
   user: User | null;
   handleLogout: () => void;
@@ -51,34 +53,31 @@ const NavBar = (props: NavBarProps): JSX.Element => {
   }, [])
 
   return (
-    <nav>
+    <div className={NavBarStyles.wrapper}>
       {(toggleMenu || screenWidth > 500) && (
-        <div className="list">
+        <div className={NavBarStyles.list}>
           {user ?
             <>
-              <p className="items" id="home-link">
-                <NavLink to="/">
-                  Home
-                </NavLink>
+              <p className={NavBarStyles.items} id="home-link">
+                <div className={NavBarStyles.homeLink}>
+                  <NavLink to="/">
+                    Syndicate
+                  </NavLink>
+                </div>
               </p>
-              <p className="items">
+              <p className={NavBarStyles.items}>
                 <NavLink to="/community">
                   Community
                 </NavLink>
               </p>
-              <p className="items">
+              <p className={NavBarStyles.items}>
                 <NavLink to="/lists">
                   Lists
                 </NavLink>
               </p>
-              <p className="items">
+              <p className={NavBarStyles.items}>
                 <NavLink to="/profile">
                   Profile
-                </NavLink>
-              </p>
-              <p className="items">
-                <NavLink to="" onClick={handleLogout}>
-                  LOG OUT
                 </NavLink>
               </p>
               <form onSubmit={handleSearch}>
@@ -96,10 +95,10 @@ const NavBar = (props: NavBarProps): JSX.Element => {
           }
         </div>
       )}
-      <button onClick={toggleNav} className="nav-btn">
+      <button onClick={toggleNav} className={NavBarStyles.navBtn}>
         <img src="/nav.png" alt="" />
       </button>
-    </nav>
+    </div>
   )
 }
 

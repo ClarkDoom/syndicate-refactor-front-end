@@ -26,6 +26,7 @@ export interface CommunityCommentCardProps {
 }
 export interface ProfilePageProps {
   profile: Profile, 
+  handleLogout: () => void;
 }
 export interface ListCardProps {
   show: Show, 
