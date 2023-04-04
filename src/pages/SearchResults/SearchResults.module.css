@@ -1,0 +1,11 @@
+.cardList {
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-around;
+  padding: 10px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}

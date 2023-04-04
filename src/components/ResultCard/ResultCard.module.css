@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+  width: 150px;
+  background-color: black;
+}
+
+.card img {
+  border-radius: 10px;
+}
+.card img:hover {
+  cursor: pointer;
+}
+
+.card:hover {
+  border-radius: 10px;
+  border: 2px solid rgb(28, 223,66);
+  
+}
+
+.card a {
+  text-decoration: none;
+  color: white;
+}
+
+.card a:hover {
+  opacity: .7;
+}

@@ -1,10 +1,11 @@
 import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
 
+import ResultCard from "../../components/ResultCard/ResultCard";
 
 // types
 import { ShowResult } from '../../types/models'
 
+import searchResultsStyles from "../SearchResults/SearchResults.module.css"
 
 const SearchResults = () => {
   const location = useLocation()
@@ -12,19 +13,12 @@ const SearchResults = () => {
 
   return (
     <div>
-      <h1>Search Results Component</h1>
-      {results.map((result: ShowResult) =>
-        <div  key={result.id}>
-          <p>-----------</p>
-          <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${result.poster_path}`} alt="" />
-          <p>
-            <Link to="/tv-show-result" state={{ resultId: result.id }}>
-              {result.name}
-            </Link>
-          </p>
-          <p>{result.first_air_date}</p>
-        </div>
-      )}
+      <h1>Search Results</h1>
+      <div className={searchResultsStyles.cardList}>
+        {results.map((result: ShowResult) =>
+          <ResultCard result={result} key={result.id} />
+        )}
+      </div>
     </div>
   );
 }

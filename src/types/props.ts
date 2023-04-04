@@ -1,10 +1,13 @@
 // types
 import { SetStateAction } from 'react';
-import { Show, Profile, Review, Comment } from './models'
+import { Show, Profile, Review, Comment, ShowResult } from './models'
 import { Dispatch } from 'react';
 
 /* ---------======= custom props ======--------- */
 
+export interface ResultCardProps {
+  result: ShowResult
+}
 export interface CreateReviewProps {
   profileId: number
 }
