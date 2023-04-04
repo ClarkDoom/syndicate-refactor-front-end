@@ -31,9 +31,24 @@
   align-self: flex-start;
 }
 
+.leaveComment button {
+  border-radius: 10px;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  background-color: rgb(28, 223, 66);
+  color: white;
+  border: 0px;
+  text-decoration: none;
+}
+
+.leaveComment button:hover {
+  opacity: .7;
+}
+
 .discussion {
   align-self: center;
-  align-items:center;
+  align-items: center;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -45,7 +60,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(53,67,83);
+  background-color: rgb(53, 67, 83);
   border-radius: 20px;
   padding: 10px;
   width: 50%;

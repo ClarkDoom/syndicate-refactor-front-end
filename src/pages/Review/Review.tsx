@@ -47,7 +47,7 @@ const Review = () => {
     }
   }
 
-  console.log(review)
+  console.log(show)
 
   return (
     <div className={reviewStyles.page}>
