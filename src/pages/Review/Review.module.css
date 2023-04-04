@@ -28,7 +28,10 @@
 }
 
 .leaveComment {
-  align-self: flex-start;
+  /* align-self: flex-start; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .leaveComment button {
@@ -40,6 +43,7 @@
   color: white;
   border: 0px;
   text-decoration: none;
+  width: 100%;
 }
 
 .leaveComment button:hover {
@@ -58,6 +62,15 @@
   color: white;
   font-family: 'Montserrat', sans-serif;
   border: 2px solid rgb(54, 173, 241);
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.leaveComment form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .discussion {
