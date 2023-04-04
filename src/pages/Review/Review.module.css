@@ -46,6 +46,14 @@
   opacity: .7;
 }
 
+.leaveComment select {
+  background-color: transparent;
+}
+
+.leaveComment textarea {
+  background-color: transparent;
+}
+
 .discussion {
   align-self: center;
   align-items: center;
@@ -91,3 +99,4 @@
   justify-items: center;
   width: 50%;
 }
+
