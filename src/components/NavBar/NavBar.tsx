@@ -81,7 +81,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                 </NavLink>
               </p>
               <form onSubmit={handleSearch}>
-                <input type="search" name="query" placeholder="Enter show name" aria-label="Search" onChange={handleSearchChange} />
+                <input type="search" name="query" placeholder="Enter show name" aria-label="Search" onChange={handleSearchChange} required/>
                 <button type="submit">
                   Search
                 </button>

@@ -105,12 +105,8 @@ align-self: center;
 opacity: .7;
 }
 
-.logout {
-  right: 0;
-}
 
-.logout button {
-}
+
 
 
 @media screen and (max-width: 575px) {
