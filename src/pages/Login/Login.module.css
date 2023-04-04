@@ -1,0 +1,50 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  width: 60%;
+  justify-self: center;
+}
+
+.wrapper {
+  width: 40%;
+  justify-content: center;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.page input {
+  align-self: center;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  margin-bottom: 10px;
+}
+
+
+.page button {
+width: 100%;
+border-radius: 10px;
+padding: 5px;
+font-family: 'Montserrat', sans-serif;
+font-weight: 900;
+background-color: rgb(28, 223,66);
+color: white;
+border: 0px;
+text-decoration: none;
+padding: 10px;
+margin-top: 10px;
+}
+
+.page button:hover {
+opacity: .7;
+}
