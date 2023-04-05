@@ -31,6 +31,9 @@ export interface ProfilePageProps {
   profile: Profile, 
   handleLogout: () => void;
 }
+export interface PublicProfileProps {
+  profileId: number, 
+}
 export interface ListCardProps {
   show: Show, 
   selectedList: string,

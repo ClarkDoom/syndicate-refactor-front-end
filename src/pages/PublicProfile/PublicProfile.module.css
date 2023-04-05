@@ -4,7 +4,106 @@
   text-align: center;
 }
 
+body::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(253,106,8);        /* color of the tracking area */
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(54,173,241);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid black;  /* creates padding around scroll thumb */
+}
+
 .page img {
   width: 20%;
   align-self: center;
+}
+
+.userName {
+  color: rgb(253,106,8);
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.actionButton {
+  border-radius: 10px;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  background-color: rgb(28, 223,66);
+  color: white;
+  border: 0px;
+  text-decoration: none;
+}
+
+.actionButton:hover {
+  opacity: .7;
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.profileSection img {
+  border-radius: 10px;
+}
+
+.profileInfo {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+.sectionShows {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.section img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.section h1 {
+  color: rgb(54,173,241)
+}
+
+.reviews a {
+  font-size: xx-small;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.statsHeaders, .statsData {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.statsHeaders p {
+  width: 25%;
+  font-weight: bold;
+}
+
+.statsData  p {
+  width: 25%;
 }

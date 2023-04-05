@@ -10,7 +10,11 @@ const ResultCard = (props: ResultCardProps) => {
 
   return (
       <Link to="/tv-show-result" state={{ resultId: result.id }} className={resultCardStyles.card}>
-      <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${result.poster_path}`} alt="" />
+        {result.poster_path ? 
+        <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${result.poster_path}`} alt="" />
+        :
+        <img src="/noimageavailable.jpeg" alt="" />
+      }
         
       <p>
           {result.name}

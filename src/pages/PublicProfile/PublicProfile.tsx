@@ -1,12 +1,42 @@
 import { Link } from "react-router-dom";
-import { ProfilePageProps } from "../../types/props";
-import { Show, Review } from "../../types/models";
+import { PublicProfileProps } from "../../types/props";
+import { Show, Review, Profile } from "../../types/models";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+
+
+import * as profileService from "../../services/profileService"
 
 import profilePageStyles from "./PublicProfile.module.css"
 
-const Profile = (props: ProfilePageProps) => {
+const PublicProfile = () => {
+  const location = useLocation()  
+const profileId = location.state.profileId
 
-  const { profile, handleLogout } = props
+  console.log(profileId)
+
+  const [profile, setProfile] = useState<Profile>({
+    name: "",
+    userName: "",
+    aboutMe: "",
+    photo: "",
+    id: 0,
+    shows: [],
+    reviews: []
+  })
+
+  useEffect((): void => {
+    const fetchProfile = async (): Promise<void> => {
+      try {
+        const profileData: Profile = await profileService.getProfile(profileId!)
+        setProfile(profileData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchProfile()
+  }, [])
 
   const favoriteShows = profile.shows.filter((show: Show) => {
     return (show.showType.toString() === "favorite")
@@ -30,27 +60,6 @@ const Profile = (props: ProfilePageProps) => {
   return (
     <div className={profilePageStyles.page}>
       <h1 className={profilePageStyles.userName}>@{profile.userName}</h1>
-      <div className={profilePageStyles.actionButtons}>
-        <Link
-          className={profilePageStyles.actionButton}
-          to="/edit-profile"
-        >
-          Edit Profile
-        </Link>
-        <Link
-          to="/change-password"
-          className={profilePageStyles.actionButton}
-        >
-          Change Password
-        </Link>
-        <Link 
-          to="" 
-          onClick={handleLogout} 
-          className={profilePageStyles.actionButton}
-        >
-          Logout
-        </Link>
-      </div>
       <div className={profilePageStyles.profileSection}>
         <img src={profile.photo} alt="" />
         <div className={profilePageStyles.profileInfo}>
@@ -126,4 +135,4 @@ const Profile = (props: ProfilePageProps) => {
   );
 }
 
-export default Profile;
+export default PublicProfile;

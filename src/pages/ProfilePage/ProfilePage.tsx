@@ -25,7 +25,6 @@ const Profile = (props: ProfilePageProps) => {
   const seenItCount = seenIt.length
   const reviews = profile.reviews
   const reviewsCount = reviews.length
-  console.log(reviews)
 
   return (
     <div className={profilePageStyles.page}>
