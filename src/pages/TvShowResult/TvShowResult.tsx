@@ -91,10 +91,10 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
   return (
     <>
       <h1>TvShowResult Page</h1>
-      <p>
-        {tvShow.name}
-      </p>
+      <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${tvShow.poster_path}`} alt="TV Show Poster" />
+      <p>{tvShow.name}</p>
       <p>First Air Date: {tvShow.first_air_date}</p>
+      <p>{tvShow.overview}</p>
       <button onClick={handleSubmit} key="ALERT" id="watchlist">Watchlist</button>
       <button onClick={handleSubmit} id="currently watching">Currently Watching</button>
       <button onClick={handleSubmit} id="seen it">Seen It</button>

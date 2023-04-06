@@ -59,6 +59,11 @@ ul {
   text-decoration: none;
   font-size: x-large;
   opacity: .5;
+    margin: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+  display: flex;
 }
 #home-link a:hover {
   opacity: 1;

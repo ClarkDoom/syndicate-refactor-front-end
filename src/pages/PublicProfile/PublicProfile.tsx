@@ -82,7 +82,7 @@ const profileId = location.state.profileId
         <h1>Favorites</h1>
         <div className={profilePageStyles.sectionShows}>
           {favoriteShows.map((show: Show) =>
-            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }}>
+            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }} key={show.id}>
               <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
             </Link>
           )}
@@ -92,7 +92,7 @@ const profileId = location.state.profileId
         <h1>Watchlist</h1>
         <div className={profilePageStyles.sectionShows}>
           {watchlist.map((show: Show) =>
-            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }}>
+            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }} key={show.id}>
               <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
             </Link>
           )}
@@ -102,7 +102,7 @@ const profileId = location.state.profileId
         <h1>Currently Watching</h1>
         <div className={profilePageStyles.sectionShows}>
           {currentlyWatching.map((show: Show) =>
-            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }}>
+            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }} key={show.id}>
               <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
             </Link>
           )}
@@ -112,7 +112,7 @@ const profileId = location.state.profileId
         <h1>Show's Seen</h1>
         <div className={profilePageStyles.sectionShows}>
           {seenIt.map((show: Show) =>
-            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }}>
+            <Link to="/tv-show-result" state={{ resultId: show.tmbdShowId }} key={show.id}>
               <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${show.imageUrl}`} alt="TV Show Poster" />
             </Link>
           )}

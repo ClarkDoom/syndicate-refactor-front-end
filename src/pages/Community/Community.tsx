@@ -70,7 +70,7 @@ const Community = () => {
         <div className={communityStyles.reviews}>
           {reviews.map((review: Review) =>
             <>
-              <CommunityReviewCard key={review.id} review={review} />
+              <CommunityReviewCard key={review.id} review={review}/>
               <div className={communityStyles.divider}></div>
             </>
           )}

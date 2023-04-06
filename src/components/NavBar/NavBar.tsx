@@ -58,13 +58,11 @@ const NavBar = (props: NavBarProps): JSX.Element => {
         <div className={NavBarStyles.list}>
           {user ?
             <>
-              <p className={NavBarStyles.items} id="home-link">
                 <div className={NavBarStyles.homeLink}>
                   <NavLink to="/">
                     Syndicate
                   </NavLink>
                 </div>
-              </p>
               <p className={NavBarStyles.items}>
                 <NavLink to="/community">
                   Community
