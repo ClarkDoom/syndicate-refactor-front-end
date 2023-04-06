@@ -11,6 +11,8 @@ import { ShowResult, SeasonResult } from '../../types/models'
 import { TvShowResultProps } from '../../types/props'
 import { CreateShowForm } from "../../types/forms";
 
+import styles from "./TvShowResult.module.css"
+
 const TvShowResult = (props: TvShowResultProps): JSX.Element => {
   const location = useLocation()
   const navigate = useNavigate()
@@ -34,6 +36,8 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
     imageUrl: tvShow.poster_path,
     showType: ""
   })
+  
+  const formattedDate = new Date(tvShow.first_air_date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})
 
   useEffect(() => {
     try {
@@ -74,7 +78,7 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
     try {
       await showService.addShow(profileId, { ...showForm, showType: target.id })
       // const route = target.id.replace(/\s+/g, '-')
-      if(target.id === "favorite"){
+      if (target.id === "favorite") {
         navigate('/profile')
       } else {
         navigate(`/lists`, {
@@ -89,26 +93,35 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
   }
 
   return (
-    <>
-      <h1>TvShowResult Page</h1>
-      <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${tvShow.poster_path}`} alt="TV Show Poster" />
-      <p>{tvShow.name}</p>
-      <p>First Air Date: {tvShow.first_air_date}</p>
-      <p>{tvShow.overview}</p>
-      <button onClick={handleSubmit} key="ALERT" id="watchlist">Watchlist</button>
-      <button onClick={handleSubmit} id="currently watching">Currently Watching</button>
-      <button onClick={handleSubmit} id="seen it">Seen It</button>
-      <button onClick={handleSubmit} id="favorite">Favorite</button>
-      {tvShow.seasons.map((season: SeasonResult) =>
-        <div key={season.name}>
-          <p>
-            <Link to="/episodes" state={{ showId: tvShow.id, seasonNumber: season.season_number }}>
-              {season.name}
-            </Link>
-          </p>
+    <div className={styles.page}>
+      <h1>{tvShow.name}</h1>
+      <div className={styles.showDetails}>
+        <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${tvShow.poster_path}`} alt="TV Show Poster" />
+        <div className={styles.showSubDetails}>
+          <p>First Air Date: {formattedDate}</p>
+          <div className={styles.overviewAndButtons}>
+            <p>{tvShow.overview}</p>
+            <div className={styles.actionButtons}>
+              <button onClick={handleSubmit} key="ALERT" id="watchlist">Watchlist</button>
+              <button onClick={handleSubmit} id="currently watching">Currently Watching</button>
+              <button onClick={handleSubmit} id="seen it">Seen It</button>
+              <button onClick={handleSubmit} id="favorite">Favorite</button>
+            </div>
+          </div>
         </div>
-      )}
-    </>
+      </div>
+      <div className={styles.seasonList}>
+        {tvShow.seasons.map((season: SeasonResult) =>
+          <div key={season.name}>
+            <p>
+              <Link to="/episodes" state={{ showId: tvShow.id, seasonNumber: season.season_number }}>
+                {season.name}
+              </Link>
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
