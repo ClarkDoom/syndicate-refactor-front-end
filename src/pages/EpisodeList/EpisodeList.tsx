@@ -56,10 +56,10 @@ const EpisodeList = () => {
         {season.episodes.map((episode: EpisodeResult) =>
           <div key={episode.name} className={styles.card}>
             <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${episode.still_path}`} alt="" />
+            <p>Episode {episode.episode_number}</p>
             <Link to="/episode" state={{ episode: episode }}>
-              <p>Name: {episode.name}</p>
+              <p>{episode.name}</p>
             </Link>
-            <p>Episode Number: {episode.episode_number}</p>
             <p>Vote Average: {episode.vote_average}</p>
           </div>
         )}

@@ -20,3 +20,18 @@
   text-decoration: none;
   color: white;
 }
+
+.card a {
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(28, 223,66);
+  color: white;
+  text-decoration: none;
+  font-size: small;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.card a:hover {
+  opacity: .7;
+}
