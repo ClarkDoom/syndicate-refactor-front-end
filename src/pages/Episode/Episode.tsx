@@ -7,6 +7,8 @@ import * as searchService from '../../services/searchService'
 // types
 import { EpisodeResult, CastMemberResult } from '../../types/models'
 
+import styles from "./Episode.module.css"
+
 const Episode = () => {
   const location = useLocation()
   const episode = location.state.episode
@@ -26,6 +28,8 @@ const Episode = () => {
     guest_stars: episode.guest_stars,
     cast: []
   })
+
+  const formattedDate = new Date(episodeDetails.air_date).toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })
 
   useEffect(() => {
     try {
@@ -54,24 +58,38 @@ const Episode = () => {
   }, [episode])
 
   return (
-    <>
-    <h1>Episode Page</h1>
-    <p>Name: {episodeDetails.name}</p>
-    <p>AirDate: {episodeDetails.air_date}</p>
-    <p>Season Number: {episodeDetails.season_number}</p>
-    <p>Episode Number: {episodeDetails.episode_number}</p>
-    <p>Description: {episodeDetails.overview}</p>
-    <p>Runtime: {episodeDetails.runtime} minutes</p>
-    <p>Rating: {episodeDetails.vote_average}</p>
-    <h1>Cast</h1>
-    {episodeDetails.cast.map((member: CastMemberResult) => 
-      <div key={member.name}>
-        <img src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${member.profile_path}`} alt="" />
-        <p>Name: {member.name}</p>
-        <p>Character: {member.character}</p>
-      </div>  
-    )}
-    </>
+    <div className={styles.page}>
+      <h1>{episodeDetails.name}</h1>
+      <p>{episodeDetails.overview}</p>
+      <div className={styles.section1}>
+        <div className={styles.subSection1}>
+          <img src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${episodeDetails.still_path}`} alt="" className={styles.episodeStill} />
+        </div>
+        <div className={styles.subSection2}>
+          <p>Season {episodeDetails.season_number}</p>
+          <p>Episode {episodeDetails.episode_number}</p>
+          <p>AirDate: {formattedDate}</p>
+          <p>Runtime: {episodeDetails.runtime} minutes</p>
+          <p>Rating: {episodeDetails.vote_average}</p>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <h1>Cast</h1>
+        </div>
+        <div className={styles.castList}>
+          {episodeDetails.cast.map((member: CastMemberResult) =>
+            <div key={member.name} className={styles.card}>
+              <img src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${member.profile_path}`} alt="" />
+              <p>{member.name}</p>
+              <p>{member.character}</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+    </div>
   );
 }
 
