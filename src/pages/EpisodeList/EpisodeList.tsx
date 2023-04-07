@@ -9,6 +9,8 @@ import * as searchService from '../../services/searchService'
 // types
 import { SeasonResult, EpisodeResult } from '../../types/models'
 
+import styles from "./EpisodeList.module.css"
+
 const EpisodeList = () => {
   const location = useLocation()
   const seasonNumber = location.state.seasonNumber
@@ -45,24 +47,24 @@ const EpisodeList = () => {
 
 
   return (
-    <>
-      <h1>Episode List Component</h1>
-      <p>{season.name}</p>
+    <div className={styles.page}>
+      <h1>{season.name}</h1>
       <p>{season.overview}</p>
-      <p>{season.poster_path}</p>
+      <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${season.poster_path}`} alt="" />
       <p>{season.air_date}</p>
-      {season.episodes.map((episode: EpisodeResult) =>
-        <div key={episode.name}>
-          <p>--------------</p>
-          <Link to="/episode" state={{ episode: episode }}>
-            <p>Name: {episode.name}</p>
-          </Link>
-          <p>Img Path: {episode.still_path}</p>
-          <p>Episode Number: {episode.episode_number}</p>
-          <p>Vote Average: {episode.vote_average}</p>
-        </div>
-      )}
-    </>
+      <div className={styles.cardList}>
+        {season.episodes.map((episode: EpisodeResult) =>
+          <div key={episode.name} className={styles.card}>
+            <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${episode.still_path}`} alt="" />
+            <Link to="/episode" state={{ episode: episode }}>
+              <p>Name: {episode.name}</p>
+            </Link>
+            <p>Episode Number: {episode.episode_number}</p>
+            <p>Vote Average: {episode.vote_average}</p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
