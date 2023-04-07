@@ -121,23 +121,25 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
           <p>First Air Date: {formattedDate}</p>
           <p>{tvShow.number_of_seasons} Seasons, {tvShow.number_of_episodes} Episodes</p>
           {tvShow.genres.map(genre =>
-            <div>
+            <div className={styles.genre}>
               {genre.name}
             </div>
           )}
-          <div>
-            <p>Created By:</p>
-            {/* remove Any type */}
-            {tvShow.created_by.map((creator: any) =>
-              <div className={styles.creator}>
-                <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${creator.profile_path}`} alt="TV Show Poster" />
-                {creator.name}
-              </div>
-            )}
-          </div>
         </div>
         <div className={styles.overview}>
           <p>{tvShow.overview}</p>
+        </div>
+      </div>
+      <div className={styles.creators}>
+        <p>Created By:</p>
+        {/* remove Any type */}
+        <div className={styles.creatorList}>
+          {tvShow.created_by.map((creator: any) =>
+            <div className={styles.creator} >
+              <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${creator.profile_path}`} alt="TV Show Poster" />
+              {creator.name}
+            </div>
+          )}
         </div>
       </div>
       <div className={styles.seasonList}>

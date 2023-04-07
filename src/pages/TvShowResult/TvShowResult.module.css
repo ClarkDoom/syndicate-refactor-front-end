@@ -91,14 +91,32 @@
   opacity: .7;
 }
 
-.creator {
+.creators {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
 }
 
+.creatorList {
+  display: flex;
+  flex-direction: row;
+}
+
+.creator {
+  display: flex;
+  align-items: center;
+}
 .creator img {
   width: 10%;
   padding: 10px;
   border-radius: 20px;
+}
+
+.genre {
+  border-radius: 10px;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(54,173,241);
+  color: white;
+  font-size: small;
+  margin: 5px;
 }
