@@ -51,6 +51,12 @@ export interface ShowResult {
   first_air_date: string;
   poster_path: string;
   overview: string;
+  created_by: [];
+  genres: [];
+  number_of_episodes: number;
+  number_of_seasons: number;
+  vote_average: number;
+
 }
 
 export interface SeasonResult {

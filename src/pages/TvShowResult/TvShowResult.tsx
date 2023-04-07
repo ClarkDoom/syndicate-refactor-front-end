@@ -26,8 +26,14 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
     id: 0,
     first_air_date: "",
     poster_path: "",
-    overview: ""
+    overview: "",
+    created_by: [],
+    genres: [],
+    number_of_episodes: 0,
+    number_of_seasons: 0,
+    vote_average: 0,
   })
+
 
   const [showForm, setShowForm] = useState<CreateShowForm>({
     tmbdShowId: tvShow.id,
@@ -36,21 +42,22 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
     imageUrl: tvShow.poster_path,
     showType: ""
   })
-  
-  const formattedDate = new Date(tvShow.first_air_date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})
+
+  const formattedDate = new Date(tvShow.first_air_date).toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })
 
   useEffect(() => {
     try {
       async function findShow() {
         const response = await searchService.findShow(resultId)
-        setTvShow({
-          name: response.name,
-          seasons: response.seasons,
-          id: response.id,
-          first_air_date: response.first_air_date,
-          poster_path: response.poster_path,
-          overview: response.overview
-        })
+        setTvShow(response)
+        // setTvShow({
+        //   name: response.name,
+        //   seasons: response.seasons,
+        //   id: response.id,
+        //   first_air_date: response.first_air_date,
+        //   poster_path: response.poster_path,
+        //   overview: response.overview
+        // })
       }
       findShow()
     } catch (err) {
@@ -95,19 +102,42 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
   return (
     <div className={styles.page}>
       <h1>{tvShow.name}</h1>
+      <p>TMBD Score: {tvShow.vote_average}</p>
       <div className={styles.showDetails}>
-        <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${tvShow.poster_path}`} alt="TV Show Poster" />
-        <div className={styles.showSubDetails}>
-          <p>First Air Date: {formattedDate}</p>
-          <div className={styles.overviewAndButtons}>
-            <p>{tvShow.overview}</p>
-            <div className={styles.actionButtons}>
-              <button onClick={handleSubmit} key="ALERT" id="watchlist">Watchlist</button>
-              <button onClick={handleSubmit} id="currently watching">Currently Watching</button>
-              <button onClick={handleSubmit} id="seen it">Seen It</button>
-              <button onClick={handleSubmit} id="favorite">Favorite</button>
+        <div className={styles.showDetails1}>
+          <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${tvShow.poster_path}`} alt="TV Show Poster" />
+          <div className={styles.actionButtons}>
+            <div className={styles.btnRow}>
+              <button onClick={handleSubmit} key="ALERT" id="watchlist">👀</button>
+              <button onClick={handleSubmit} id="currently watching">📺</button>
+            </div>
+            <div className={styles.btnRow}>
+              <button onClick={handleSubmit} id="seen it">✅</button>
+              <button onClick={handleSubmit} id="favorite">❤️</button>
             </div>
           </div>
+        </div>
+        <div className={styles.showSubDetails}>
+          <p>First Air Date: {formattedDate}</p>
+          <p>{tvShow.number_of_seasons} Seasons, {tvShow.number_of_episodes} Episodes</p>
+          {tvShow.genres.map(genre =>
+            <div>
+              {genre.name}
+            </div>
+          )}
+          <div>
+            <p>Created By:</p>
+            {/* remove Any type */}
+            {tvShow.created_by.map((creator: any) =>
+              <div className={styles.creator}>
+                <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${creator.profile_path}`} alt="TV Show Poster" />
+                {creator.name}
+              </div>
+            )}
+          </div>
+        </div>
+        <div className={styles.overview}>
+          <p>{tvShow.overview}</p>
         </div>
       </div>
       <div className={styles.seasonList}>
