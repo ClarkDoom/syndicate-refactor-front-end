@@ -105,7 +105,11 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
       <p>TMBD Score: {tvShow.vote_average}</p>
       <div className={styles.showDetails}>
         <div className={styles.showDetails1}>
-          <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${tvShow.poster_path}`} alt="TV Show Poster" />
+          {tvShow.poster_path ?
+            <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${tvShow.poster_path}`} alt="TV Show Poster" />
+            :
+            <img src="/noimageavailable" alt="TV Show Poster" />
+          }
           <div className={styles.actionButtons}>
             <div className={styles.btnRow}>
               <button onClick={handleSubmit} key="ALERT" id="watchlist">👀</button>
@@ -121,11 +125,13 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
           <p>First Air Date: {formattedDate}</p>
           <p>{tvShow.number_of_seasons} Seasons, {tvShow.number_of_episodes} Episodes</p>
           {/* remove any type */}
-          {tvShow.genres.map((genre: any, idx: number) =>
+          {/* {tvShow.genres.map((genre: any, idx: number) =>
             <div className={styles.genre} key={idx}>
-              {genre.name}
+              <p>
+                {genre.name}
+              </p>
             </div>
-          )}
+          )} */}
         </div>
         <div className={styles.overview}>
           <p>{tvShow.overview}</p>
@@ -135,8 +141,8 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
         <p>Created By:</p>
         {/* remove Any type */}
         <div className={styles.creatorList}>
-          {tvShow.created_by.map((creator: any) =>
-            <div className={styles.creator} >
+          {tvShow.created_by.map((creator: any, idx: number) =>
+            <div className={styles.creator} key={idx}>
               <img src={`https://www.themoviedb.org/t/p/w188_and_h282_bestv2${creator.profile_path}`} alt="TV Show Poster" />
               {creator.name}
             </div>
