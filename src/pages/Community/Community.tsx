@@ -57,33 +57,33 @@ const Community = () => {
       <div className={communityStyles.headerAndCardList}>
         <h3 className={communityStyles.header}>Activity</h3>
         <div className={communityStyles.activity}>
-          {shows.map((show: Show) =>
-            <>
-              <CommunityActivityCard key={show.id} show={show} />
+          {shows.map((show: Show, idx: number) =>
+            <div key={idx}>
+              <CommunityActivityCard show={show} />
               <div className={communityStyles.divider}></div>
-            </>
+            </div>
           )}
         </div>
       </div>
       <div className={communityStyles.headerAndCardList}>
         <h3 className={communityStyles.header}>Reviews</h3>
         <div className={communityStyles.reviews}>
-          {reviews.map((review: Review) =>
-            <>
-              <CommunityReviewCard key={review.id} review={review}/>
+          {reviews.map((review: Review, idx: number) =>
+            <div key={idx}>
+              <CommunityReviewCard review={review}/>
               <div className={communityStyles.divider}></div>
-            </>
+            </div>
           )}
         </div>
       </div>
       <div className={communityStyles.headerAndCardList}>
         <h3 className={communityStyles.header}>Conversation</h3>
         <div className={communityStyles.conversation}>
-          {comments.map((comment: Comment) =>
-            <>
-              <CommunityCommentCard key={comment.id} comment={comment} />
+          {comments.map((comment: Comment, idx: number) =>
+            <div key={idx} >
+              <CommunityCommentCard comment={comment} />
               <div className={communityStyles.divider}></div>
-            </>
+            </div>
           )}
         </div>
       </div>

@@ -11,10 +11,9 @@ import * as profileService from "../../services/profileService"
 import profilePageStyles from "./PublicProfile.module.css"
 
 const PublicProfile = () => {
-  const location = useLocation()  
-const profileId = location.state.profileId
+  const location = useLocation()
+  const profileId = location.state.profileId
 
-  console.log(profileId)
 
   const [profile, setProfile] = useState<Profile>({
     name: "",

@@ -121,8 +121,8 @@ const TvShowResult = (props: TvShowResultProps): JSX.Element => {
           <p>First Air Date: {formattedDate}</p>
           <p>{tvShow.number_of_seasons} Seasons, {tvShow.number_of_episodes} Episodes</p>
           {/* remove any type */}
-          {tvShow.genres.map((genre: any) =>
-            <div className={styles.genre}>
+          {tvShow.genres.map((genre: any, idx: number) =>
+            <div className={styles.genre} key={idx}>
               {genre.name}
             </div>
           )}
