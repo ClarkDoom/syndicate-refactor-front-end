@@ -58,11 +58,11 @@ const NavBar = (props: NavBarProps): JSX.Element => {
         <div className={NavBarStyles.list}>
           {user ?
             <>
-                <div className={NavBarStyles.homeLink}>
-                  <NavLink to="/">
-                    Syndicate
-                  </NavLink>
-                </div>
+              <div className={NavBarStyles.homeLink}>
+                <NavLink to="/">
+                  Syndicate
+                </NavLink>
+              </div>
               <p className={NavBarStyles.items}>
                 <NavLink to="/community">
                   Community
@@ -78,17 +78,19 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                   Profile
                 </NavLink>
               </p>
-              <form onSubmit={handleSearch}>
-                <input type="search" name="query" placeholder="Enter show name" aria-label="Search" onChange={handleSearchChange} required/>
-                <button type="submit">
-                  Search
-                </button>
-              </form>
+              <div>
+                <form onSubmit={handleSearch}>
+                  <input type="search" name="query" placeholder="Enter show name" aria-label="Search" onChange={handleSearchChange} required />
+                  <button type="submit">
+                    Search
+                  </button>
+                </form>
+              </div>
             </>
             :
             <>
-              <p><NavLink to="/login">Log In</NavLink></p>
-              <p><NavLink to="/signup">Sign Up</NavLink></p>
+              <p className={NavBarStyles.items}><NavLink to="/login">Log In</NavLink></p>
+              <p className={NavBarStyles.items}><NavLink to="/signup">Sign Up</NavLink></p>
             </>
           }
         </div>
