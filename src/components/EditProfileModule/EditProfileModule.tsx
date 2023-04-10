@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import * as profileService from '../../services/profileService'
 
+import styles from "./EditProfileModule.module.css"
+
 const EditProfileModule = (props: EditProfileModuleProps) => {
   const { profile, setChangeOccured, changeOccured } = props
   const navigate = useNavigate()
@@ -40,58 +42,57 @@ const EditProfileModule = (props: EditProfileModuleProps) => {
   }
 
   return (
-    <>
-    <form onSubmit={handleSubmit}>
-      <h1>Edit Profile Module</h1>
-      <div >
-        <label htmlFor="name" >Name</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          name="name"
-          onChange={handleChange}
-        />
-      </div>
-      <div >
-        <label htmlFor="userName" >userName</label>
-        <input
-          type="text"
-          id="userName"
-          value={userName}
-          name="userName"
-          onChange={handleChange}
-        />
-      </div>
-      <label htmlFor="aboutMe" >
-        About Me
-      </label>
-      <div className="input-container ic2">
-        <textarea
-          id="aboutMe"
-          name="aboutMe"
-          value={aboutMe}
-          onChange={(
-            ev: React.ChangeEvent<HTMLTextAreaElement>,
-          ): void => setEditProfileForm({ ...editProfileForm, aboutMe: ev.target.value })}
-          rows={5}
-          cols={5}
-        />
-      </div>
-      <div >
-        <label htmlFor="photo-upload" >
-          Upload Photo
+    <div className={styles.page}>
+      <form onSubmit={handleSubmit}>
+        <h1>Edit Profile</h1>
+        <div >
+          <label htmlFor="name" ></label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            name="name"
+            onChange={handleChange}
+          />
+        </div>
+        <div >
+          <label htmlFor="userName" > </label>
+          <input
+            type="text"
+            id="userName"
+            value={userName}
+            name="userName"
+            onChange={handleChange}
+          />
+        </div>
+        <label htmlFor="aboutMe" >
         </label>
-        <input
-          type="file"
-          id="photo-upload"
-          name="photo"
-          onChange={handleChangePhoto}
-        />
-      </div>
-      <button type="submit">Submit</button>
-    </form> 
-    </>
+        <div>
+          <textarea
+            id="aboutMe"
+            name="aboutMe"
+            value={aboutMe}
+            onChange={(
+              ev: React.ChangeEvent<HTMLTextAreaElement>,
+            ): void => setEditProfileForm({ ...editProfileForm, aboutMe: ev.target.value })}
+            rows={5}
+            cols={40}
+          />
+        </div>
+        <div >
+          <label htmlFor="photo-upload" >
+            Upload Photo
+          </label>
+          <input
+            type="file"
+            id="photo-upload"
+            name="photo"
+            onChange={handleChangePhoto}
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 }
 
