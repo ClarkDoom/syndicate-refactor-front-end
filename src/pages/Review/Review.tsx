@@ -12,6 +12,7 @@ const Review = () => {
   const show = location.state.show
 
   const [comments, setComments] = useState([])
+  const [changeOccured, setChangeOccured] = useState(false)
 
   const [commentForm, setCommentForm] = useState<any>({
     commentText: "",
@@ -30,7 +31,7 @@ const Review = () => {
     } catch (err) {
       console.log(err)
     }
-  }, [])
+  }, [changeOccured])
 
   const selectChange = (evt: React.ChangeEvent<HTMLSelectElement>) => {
     const value = evt.target.value;
@@ -42,12 +43,11 @@ const Review = () => {
     try {
       await commentService.addComment(show.addedBy, review.id, commentForm)
       alert('Comment Created!')
+      setChangeOccured(!changeOccured)
     } catch (err) {
       console.log(err)
     }
   }
-
-  console.log(show)
 
   return (
     <div className={reviewStyles.page}>
