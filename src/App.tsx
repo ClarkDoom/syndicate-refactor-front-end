@@ -45,7 +45,7 @@ function App(): JSX.Element {
   const handleLogout = (): void => {
     authService.logout()
     setUser(null)
-    navigate('/')
+    navigate('/community')
   }
 
   const handleAuthEvt = (): void => {

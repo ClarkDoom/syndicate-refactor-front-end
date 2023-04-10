@@ -6,6 +6,8 @@ import * as reviewService from '../../services/reviewService'
 
 import { CreateReviewProps } from '../../types/props'
 
+import styles from "./CreateReview.module.css"
+
 const CreateReview = (props: CreateReviewProps) => {
   const location = useLocation()
   const navigate = useNavigate()
@@ -44,7 +46,7 @@ const CreateReview = (props: CreateReviewProps) => {
   }
 
   return (
-    <div>
+    <div className={styles.page}>
       <form
         className="form"
         autoComplete="off"
@@ -54,29 +56,24 @@ const CreateReview = (props: CreateReviewProps) => {
 
         <div className="input-container ic1">
           <label
-            className="placeholder"
             htmlFor="item-name"
-          >Review Title</label>
+          ></label>
           <input
-            className="input"
-            placeholder=" "
             type="text"
             id="reviewTitle"
             value={reviewTitle}
             name="reviewTitle"
             onChange={handleChange}
+            placeholder="Review Title"
 
           />
-          <div className="cut"></div>
         </div>
 
 
-        <div className="input-container ic2">
+        <div>
           <label
-            className="placeholder"
             htmlFor="rating">Rating</label>
           <select
-            className="input"
             id="rating"
             value={rating}
             name="rating"
@@ -95,14 +92,14 @@ const CreateReview = (props: CreateReviewProps) => {
           <div className="cut"></div>
         </div>
 
-        <div className="input-container ic2">
+        <div>
           <textarea
             value={reviewContent}
             onChange={(
               ev: React.ChangeEvent<HTMLTextAreaElement>,
             ): void => setFormData({ ...formData, reviewContent: ev.target.value })}
             rows={5}
-            cols={5}
+            cols={40}
           />
         </div>
 
